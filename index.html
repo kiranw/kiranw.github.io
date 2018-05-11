@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Westminster</title>
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+
+	<div id="header" class="row">
+		<div class="col-md-10">
+			<h1 class="headline-style">Westminster, The Distributed Consensus System</h1>
+			<br>
+			<h4>Mali Akmanalp, mali@akmanalp.com</h4>
+			<h4>Kiran Wattamwar, kwattamwar@mde.harvard.edu</h4>
+			<h4>CS 262, Spring 2018</h4>
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+
+    <hr>
+
+	<div id="about" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">Abstract: About Westminster</div>
+				<p>We were struck by Lamport's Paxos and Byzantine Generals Problem papers. In both of these, Lamport relates
+					a system design to a human analogy to explain how such a system would look in a mechanism that is relatable.
+					However, what if the inverse approach was applied to designing a system? In this project, we attempt to extract
+					parts of the Westminster System to create a distributed, hierarchical conensus and leader election algorithm.
+				</p>
+				<p>Whether human analogies incept the ideas, or the ideas beget analogies we were interested to see what
+					could be gained from applying human systems to distributed systems. It is clear that there are
+					striking parallels between the design of distributed systems and the construction of government
+					systems. Consensus and leader election are long standing requirements of many governments today.
+				</p>
+				<p>We start with the Westminster System since it has several requirements that are clearly structured, and
+					the system operates almost like an interface that has been extended and customized by several other
+					governments for various purposes (a lot of the Eastern Bloc, India, Australia, Canada, Japan).
+				</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="primer" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">Introduction: What is the Westminster System?</div>
+			<br>
+			<strong class="sub-heading">House of Commons</strong><br>
+			<ul>
+				<li>Represent different constituencies across the country</li>
+				<li>One representative maps to one constituency</li>
+				<li>Constituencies are decided by Boundary Commissions</li>
+				<li>In the UK, this is the lower house with 650 seats</li>
+				<li>Can reject a motion of confidence to force resignation by the Prime Minister</li>
+				<li>A Speaker and Opposition Leader are selected</li>
+				<li>No term limit</li>
+				<li>Elected every 5 years or when Parliament dissolves</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">House of Lords</strong><br>
+			<ul>
+				<li>Members are considered to be domain experts</li>
+				<li>Most members are appointed, some are elected</li>
+				<li>Total number of members is not fixed (currently 781)</li>
+				<li>Members usually come from the House of Commons</li>
+				<li>Scrutinize bills passed by the House of Commons</li>
+				<li>Cannot prevent bills from being passed into law, but can force the Commons to reconsider votes and delay a process</li>
+				<li>Terms are 15 years</li>
+				<li>Members are capped at 1 term</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">Monarch</strong><br>
+			<ul>
+				<li>Makes appointments based on the advice of the House and Prime Minister</li>
+				<li>Terms are lifelong and hereditary</li>
+				<li>There is no election</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">Prime Minister</strong><br>
+			<ul>
+				<li>Selects a cabinet of advisors</li>
+				<li>Appointed by the Monarch as a person with the confidence of the House of Commons</li>
+				<li>"Primus inter pares": First among equals</li>
+				<li>Can be forced to resign if they lose a vote of confidence</li>
+				<li>Terms are "at her majesty's pleasure"</li>
+			</ul>
+
+			<br>
+
+			<p>This is an extremely reductive representation of only parts of the Parliament system. There is also a judiciary system which
+				we will not be exploring in this project, because revision and review of a corpus of data that has already been agreed upon
+				occurs in the Parliament in our model system.</p>
+
+			<p>It is worth highlighting a few key characteristics we want to embrace, and others we will not be including in the project.
+				The House of Commons serves a shorter cycle than the House of Lords, which allows for staggered voting and different leases.
+				This means the House of Lords can best represent local changes to a network if machines are added and dropped - this form
+				of representation will be most responsive. However, choosing the representatives of a large scale system that often may
+				delay the speed of decision making. This makes the bicameral structure ideal, where the House of Lords is less responsive
+				but more stable over time.</p>
+
+			<p>Although the term limits are worth integrating into the system, we did not include the proportion of each
+				as it currently exists in the Parliament. The House of Lords in reality is larger than the House of Commons,
+				but in this system, but House of Lords will be significantly smaller.</p>
+
+			<p>Apart from the federated model of decision making, we will also be including votes of confidence. These will be regularly
+				initiated, and can serve to either terminate or renew the lease of a serving prime minister, which, in this case, is automatically
+				enduring unless a Vote of No Confidence occurs.</p>
+
+			<p> Lastly, a Monarch will not be included in this system. In our use case of the Westminster System as a distributed system, it is
+			difficult to imagine a system in which any machine is as permanent as a Monarch, that is not selected or renewed by consensus.</p>
+
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="primer" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">System Design</div>
+			<br>
+			<strong class="sub-heading">Assumptions about the Underlying System Structure</strong><br><br>
+			<strong>Network Structure</strong><br>
+			<p>We assume a network in which there are geographically distributed machines across a broad scale. If not
+				geographically distributed, this system is modelled after machines that represent diverse services,
+				products or operations such that inclusion of different "districts" or zones is important. In this way,
+				the use of constituencies to partition the network into smaller districts for hierarchical voting makes sense.
+				If some decisions to be made are localized to specific districts, then a vote can occur internally, without
+				continuing to deeper levels of the hierarchy before reaching an answer. This can improve efficiency and availability
+				in the larger system, and better utilize the local system.</p>
+
+			<p>Such an assumption requires tools to partition networks. Several
+			algorithms (dubbed "community detection") already exist that use
+			different heuristics to separate topologies into smaller clusters which
+			we will consider to be districts:
+
+			<ul>
+				<li>The classic example, the Kernighan-Lin algorithm, attempts to
+					partition a graph into sections while minimizing the number of
+					connections needed between each section (network modularity). This
+					could perhaps be employed in situations where the network topology is
+					a limiting factor.
+				</li>
+				<li>There are also modern variants such as Newman's "fast" algorithm
+					which uses greedy optimization to minimize the modularity metric and
+					scales better to larger networks.
+				</li>
+				<li>
+					Finally there are variants like Facebook's graph partitioning
+					algorithm, which are graph-parallel, meaning it does not need global
+					information and can be performed solely with node to node
+					communication.
+				</li>
+			</ul>
+
+			<br/>
+
+			<strong>Commodity Machines</strong><br>
+			<p>We assume the system is composed of several commodity machines. This practically makes sense, as large
+			scale distributed systems do not depend on reliable machines to construct reliable systems. In this system design,
+			we handle the addition or removal of machines with shorter leases for local leader terms. This allows
+			for local leader elections to be more responsive to changes in local districts. Machines also maintain reputations
+			which are based on some heuristic. Machines that have proven more "trustworthiness" score higher reputation
+			metrics, which are used to appoint machines to higher serving positions and carry more voting power.</p>
+
+			<strong>Operations Expected</strong><br>
+			<p>This system can support local leader election (Commons), the selection of the next layer (Lords), global leader
+			election (PM), and standard CRUD operations. Some operations can be handled locally, for example, reads or
+			writes for local districts that do not need consensus among the entire system (could be useful for temporary logs).</p>
+		</div>
+	</div>
+	<hr>
+
+	<div class="row section">
+		<div class="col-md-12">
+			<div class="section-header">System Components</div>
+			<br>
+			<strong class="sub-heading">House of Commons</strong><br>
+			<ul>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">House of Lords</strong><br>
+			<ul>
+			</ul>
+
+
+			<br>
+			<strong class="sub-heading">Prime Minister</strong><br>
+			<ul>
+			</ul>
+
+			<br>
+			<strong class="sub-heading"></strong><br>
+			<p></p>
+
+			<br>
+			<strong class="sub-heading"></strong><br>
+			<p></p>
+		</div>
+	</div>
+
+	<hr>
+
+
+
+
+
+	<hr>
+
+	<div id="landscape" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">The District Level System</div>
+			<Br>
+			<br>
+			<div class="sub-heading">A Toy Model</div>
+			In this visualization, we present a local district voting system. The system starts with Node 0 as its
+			elected local leader. The first panel (center) represents the scoring metrics updating, establishing a reputation
+			on the machines. The top scoring machine is offered a ballot position in the next election, and the current
+			leader will broadcast to all nodes in the district that an election is occuring. Constituent nodes must
+			respond within a fixed amount of time for their vote to count, and the leader announces the newly elected leader
+			by broadcasting to all nodes. A log of the internal system actions is maintained on the right side.
+			<br><br>
+
+			<button class="btn btn-default" id="exampleRunElection">Run Election</button>
+			<button class="btn btn-default" id="exampleRead">Run Read</button>
+			<button class="btn btn-default" id="exampleWrite">Run Write</button>
+
+			<br><Br>
+			<div class="row">
+				<div class="col-md-6" id="districtExampleSvg"></div>
+				<div class="col-md-3" id="exampleScores">
+					<div id="exampleScores1"></div>
+					<br>
+					<strong>Read Queue</strong><br>
+					<div id="exampleReadQueue">[]</div>
+					<br>
+					<strong>Write Queue</strong><br>
+					<div id="exampleWriteQueue">[]</div>
+				</div>
+				<div class="col-md-3" id="exampleLog"><strong>SYSTEM LOG</strong><BR><br><div id="log-text"></div></div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	<hr>
+
+
+	<div id="landscape" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">The House of Commons</div>
+			<Br>
+			<br>
+			<div class="sub-heading">A Toy Model</div>
+
+			<br><br>
+			<strong CLASS="sub-heading">DISTRICTS</strong>
+			<BR><BR>
+			<div class="row">
+				<div class="col-md-2 col_0"><div id="commonsDistrict0"></div><strong>WRITE QUEUE</strong><br><div id="c0_write">[]</div><br></div>
+				<div class="col-md-2 col_1"><div id="commonsDistrict1"></div><strong>WRITE QUEUE</strong><br><div id="c1_write">[]</div><br></div>
+				<div class="col-md-2 col_2"><div id="commonsDistrict2"></div><strong>WRITE QUEUE</strong><br><div id="c2_write">[]</div><br></div>
+				<div class="col-md-2 col_3"><div id="commonsDistrict3"></div><strong>WRITE QUEUE</strong><br><div id="c3_write">[]</div><br></div>
+				<div class="col-md-2 col_4"><div id="commonsDistrict4"></div><strong>WRITE QUEUE</strong><br><div id="c4_write">[]</div><br></div>
+				<div class="col-md-2 col_5"><div id="commonsDistrict5"></div><strong>WRITE QUEUE</strong><br><div id="c5_write">[]</div><br></div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col_6"><div id="commonsDistrict6"></div><strong>WRITE QUEUE</strong><br><div id="c6_write">[]</div><br></div>
+				<div class="col-md-2 col_7"><div id="commonsDistrict7"></div><strong>WRITE QUEUE</strong><br><div id="c7_write">[]</div><br></div>
+				<div class="col-md-2 col_8"><div id="commonsDistrict8"></div><strong>WRITE QUEUE</strong><br><div id="c8_write">[]</div><br></div>
+				<div class="col-md-2 col_9"><div id="commonsDistrict9"></div><strong>WRITE QUEUE</strong><br><div id="c9_write">[]</div><br></div>
+				<div class="col-md-2 col_10"><div id="commonsDistrict10"></div><strong>WRITE QUEUE</strong><br><div id="c10_write">[]</div><br></div>
+				<div class="col-md-2 col_11"><div id="commonsDistrict11"></div><strong>WRITE QUEUE</strong><br><div id="c11_write">[]</div><br></div>
+			</div>
+			<br><Br>
+			<br><Br>
+			<br><Br>
+			<strong CLASS="sub-heading">HOUSE OF COMMONS</strong>
+			<BR>
+			<BR>
+
+			<button class="btn btn-default" id="commonsParliament">Parliament Session</button>
+			<button class="btn btn-default" id="commonsPM">Vote of Confidence</button>
+			<button class="btn btn-default" id="commonsElection">Elect House of Commons</button>
+			<br><br>
+			<div class="row">
+				<div class="col-md-6" id="commonsSvg"></div>
+				<div class="col-md-3" id="commonsScores">
+					<strong>Reputation Metrics</strong><br>
+					<div id="commonsScores1"></div>
+					<br>
+					<strong>Write Queue</strong><br>
+					<div id="commonsWriteQueue">[]</div>
+				</div>
+				<div class="col-md-3" id="commonsLog"><strong>SYSTEM LOG</strong><BR><br><div id="commons-log-text"></div></div>
+			</div>
+
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="related-work" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">Related Work</div>
+			<br>
+			<p>Aside from the Lamport paper, trying to find previous work in the area
+			of simulating parliaments as distributed systems proved to be
+			challenging. However, widening our scope a bit, we were able to find some
+			interesting papers in related subjects that offer some insights.</p>
+
+			<p>One paper by Imamichi talks about "Distributed Information Systems and
+			Human Organization", which seemed promising but ended up being about the
+			effect of moving from centralized to distributed computer systems on
+			human organizations, and not about distributed systems-inspired human
+			organizations. Nonetheless the implication was that the system that
+			humans use to communicate and coordinate with each other has an effect on
+			how they conduct their daily business, which was promising.</p>
+
+			<p>Another paper by Axtell ties the idea of agent-based modelling in
+			Economics with Distributed Computing. This is a highly theoretical,
+			unfocused and sprawling paper that incorporates many ideas, and
+			criticizes the mathematical modelling approaches at the time for making
+			overly simplified assumptions of human systems. It likens human agents in
+			an economic system to "concurrent processes with heterogeneous
+			information". Interestingly, it argues that "real societies are
+			asynchronous", and then goes on to list the effects of this, most of
+			which are familiar to us from a distributed systems context. It also
+			portrays humans as agents not necessarily solving the problems of
+			distributed systems but having to constantly deal with incomplete and out
+			of date information and making best-effort decisions based on that. If
+			anything, this paper agrees with our hunch that humans deal with
+			distributed systems problems all the time, and provides further
+			justification for investigating.</p>
+
+			<p>One of the citations for this paper, by Huberman and Hogg from Xerox
+			Parc, likens computer networks to market economies ("coordinating
+			asynchronous operations in the face of imperfect knowledge"), which is an
+			encouraging sign that we're looking at something interesting. However the
+			paper itself mostly deals with the allocation of resources and less about
+			consensus. One interesting point is that it warns about how humans are
+			more complex and slower than machines on a network, and that while in
+			distributed systems it's a nice approach to try to eliminate these
+			problems systematically (deploy uniform software on homogenous machines,
+			build networks with ordering guarantees, etc), in the case of the humans
+			we're often stuck with the eccentricities that come with them and need to
+			deal with them directly.</p>
+
+			<p>Finally, the field of Human Based Computation offers some interesting
+			insights. Systems like CAPTCHAs, Collaborative Filtering systems (like
+			Netflix or Yelp) can all be thought of as distributed consensus systems.
+			Many users voting 0 to 5 stars on a TV show over time is essentially a
+			distributed and asynchronous consensus process with no time limit. In
+			this field, incentive to participate is a big consideration -  the
+			assumption being that by default people might not want to participate and
+			they have to be attracted with some benefit. For us, it's the opposite -
+			in a legislative system, the benefits are often quite clear to the
+			participants, and it's rather a problem of attracting the right kind of
+			participant, which might not really affect how our model works.</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="conclusions" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">Conclusions and Future Work</div>
+			<br>
+			<p>
+			Lorem ipsum dolor sit amet
+			</p>
+		</div>
+	</div>
+
+	<div id="citations" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">Citations</div>
+			<br/>
+			<ul>
+				<li>
+					Lamport, 1998, "The Part-Time Parliament"
+					ACM Transactions on Computer Systems
+					<a href="https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf">https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf</a>
+				</li>
+				<li>
+					Kernighan et al, 1970, "An efficient heuristic procedure for partitioning graphs"
+					Bell System Technical Journal
+					<a href="https://doi.org/10.1002%2Fj.1538-7305.1970.tb01770.x">https://ieeexplore.ieee.org/document/6771089/</a>
+				</li>
+				<li>
+					Newman, 2004, "Fast algorithm for detecting community structure in networks"
+					American Physical Society
+					<a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.69.066133">https://journals.aps.org/pre/abstract/10.1103/PhysRevE.69.066133</a>
+				</li>
+				<li>
+					Presta et al, 2014, "Large-scale graph partitioning with Apache Giraph"
+					<a href="https://code.facebook.com/posts/274771932683700/large-scale-graph-partitioning-with-apache-giraph/">https://code.facebook.com/posts/274771932683700/large-scale-graph-partitioning-with-apache-giraph/</a>
+				</li>
+				<li>
+					Imamichi, 1995, "Distributed Information Systems and Human Organization"
+					International Federation of Automatic Control Conference.
+					<a href="https://ac.els-cdn.com/S1474667017467140/1-s2.0-S1474667017467140-main.pdf">https://ac.els-cdn.com/S1474667017467140/1-s2.0-S1474667017467140-main.pdf</a>
+				</li>
+				<li>
+					Axtell, 2003, "Economics as Distributed Computation"
+					Approaches in Economic and Social Complex Systems Conference.
+					<a href="https://pdfs.semanticscholar.org/74c3/0efd88519f07f0ba39036b4ee7bcbcb72629.pdf">https://pdfs.semanticscholar.org/74c3/0efd88519f07f0ba39036b4ee7bcbcb72629.pdf </a>
+				</li>
+				<li>
+					Huberman et Al, 1995, "Distributed Computation as an Economic System"
+					Journal of Economic Perspectives.
+					<a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.9.1.141">https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.9.1.141</a>
+				</li>
+				<li>
+					Wikipedia, "Human-based computation"
+					<a href="https://en.wikipedia.org/wiki/Human-based_computation">https://en.wikipedia.org/wiki/Human-based_computation</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+	<hr>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/d3.js"></script>
+	<script src="js/commons.js"></script>
+	<script src="js/localelection.js"></script>
+	</body>
+</html>

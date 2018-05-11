@@ -1,0 +1,97 @@
+/* ************ ADD YOUR CUSTOM STYLES ************ */
+@font-face {
+  font-family: "Apercu";
+  src:url("../fonts/Apercu.ttf");
+}
+
+@font-face {
+  font-family: "ApercuMono";
+  src:url("../fonts/apercu-mono-webfont.ttf");
+}
+
+body {
+  font-family: 'ApercuMono', sans-serif;
+  padding: 3% 15% 8% 15%;
+  margin: 0 auto;
+  letter-spacing: -0.5px;
+}
+
+.headline-style {
+  font-family: "Apercu";
+  color: #4d94ff;
+  font-weight: 800;
+}
+
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.section-header {
+  font-family: "Apercu";
+  font-weight: 800;
+  font-size: 2em;
+  color: #4d94ff;
+}
+
+.sub-heading{
+  font-family:"Apercu";
+  font-weight:800;
+  font-size:1.3em;
+  color: midnightblue;
+}
+
+
+line.node-link, path.node-link {
+  fill: none;
+  stroke: rgba(1,1,1,0.2);
+}
+circle.node {
+  fill: white;
+  stroke: black
+}
+circle.node+text {
+  text-anchor: middle;
+}
+text {
+  font-family: "ApercuMono";
+  pointer-events: none;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.leader {
+  fill:#4d94ff !important;
+  color: white !important;
+  stroke: white !important;
+}
+
+circle.leader+text{
+  fill: white !important;
+}
+
+#exampleLog, #exampleScores, #commonsLog, #commonsScores {
+  background-color: #efefef;
+  height: 500px;
+  border-radius: 50px;
+  border: 3px solid white;
+  padding: 30px;
+  word-wrap: break-word;
+  display:inline-block;
+}
+
+
+#log-text, #commons-log-text  {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.label2 {
+  font-size: 1.2em;
+}
+
+.leading-district {
+  background-color: rgba(77,148,255,0.2);
+}
