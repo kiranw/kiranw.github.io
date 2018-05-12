@@ -14,7 +14,7 @@
 
 	<div id="header" class="row">
 		<div class="col-md-10">
-			<h1 class="headline-style">Westminster, The Distributed Consensus System</h1>
+			<h1 class="headline-style">Westminster, The Federated Distributed Consensus System</h1>
 			<br>
 			<h4>Mali Akmanalp, mali@akmanalp.com</h4>
 			<h4>Kiran Wattamwar, kwattamwar@mde.harvard.edu</h4>
@@ -28,21 +28,118 @@
 
 	<div id="about" class="section row">
 		<div class="col-md-12">
-			<div class="section-header">Abstract: About Westminster</div>
-				<p>We were struck by Lamport's Paxos and Byzantine Generals Problem papers. In both of these, Lamport relates
-					a system design to a human analogy to explain how such a system would look in a mechanism that is relatable.
-					However, what if the inverse approach was applied to designing a system? In this project, we attempt to extract
-					parts of the Westminster System to create a distributed, hierarchical conensus and leader election algorithm.
-				</p>
-				<p>Whether human analogies incept the ideas, or the ideas beget analogies we were interested to see what
-					could be gained from applying human systems to distributed systems. It is clear that there are
-					striking parallels between the design of distributed systems and the construction of government
-					systems. Consensus and leader election are long standing requirements of many governments today.
-				</p>
-				<p>We start with the Westminster System since it has several requirements that are clearly structured, and
-					the system operates almost like an interface that has been extended and customized by several other
-					governments for various purposes (a lot of the Eastern Bloc, India, Australia, Canada, Japan).
-				</p>
+			<div class="section-header">Introduction</div>
+				<br/>
+<!--<<<<<<< HEAD-->
+				<!--<p>We were struck by Lamport's <a href="https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf">Paxos</a>-->
+					<!--and <a href="https://people.eecs.berkeley.edu/~luca/cs174/byzantine.pdf">Byzantine Generals Problem</a>-->
+					<!--papers. In both of these, Lamport relates-->
+					<!--a system design to a human analogy to explain how such a system would look in a mechanism that is relatable.-->
+					<!--However, what if the inverse approach was applied to designing a system? In this project, we attempt to extract-->
+					<!--parts of the Westminster System to create a distributed, hierarchical consensus and leader election algorithm.-->
+				<!--</p>-->
+				<!--<p>Whether human analogies incept the ideas, or the ideas beget analogies we were interested to see what-->
+					<!--could be gained from applying human systems to distributed systems. It is clear that there are-->
+					<!--striking parallels between the design of distributed systems and the construction of government-->
+					<!--systems. Consensus and leader election are long standing requirements of many governments today.-->
+				<!--</p>-->
+				<!--<p>We start with the Westminster System since it has several requirements that are clearly structured, and-->
+					<!--the system operates almost like an interface that has been extended and customized by several other-->
+					<!--governments for various purposes (a lot of the Eastern Bloc, India, Australia, Canada, Japan).-->
+				<!--</p>-->
+<!--=======-->
+				<p>While reading Lamport's Paxos and Byzantine Generals Problem papers
+				we were struck by how Lamport relates a system design to a human
+				analogy. However, what if the inverse approach was applied to designing
+				a system? In this project, we attempt to extract parts of the
+				Westminster System to create a distributed and hierarchical consensus
+				and leader election algorithm. </p>
+				<p>While governments predate distributed systems research by millennia,
+				the development of distributed systems has happened separately, and
+				thus has potentially disregarded ideas and lessons therein. Even in
+				"The Part-Time Parliament", it is clear that Lamport constructs a
+				fictional government to fit a distributed systems scenario, and not the
+				other way round.</p>
+				<p>Whether human analogies incept the ideas, or the ideas beget
+				analogies we were interested to see what could be gained from applying
+				human systems to distributed systems. It is clear that there are
+				striking parallels between the design of distributed systems and the
+				construction of government systems. Consensus and leader election are
+				long standing requirements of many governments today.</p>
+				<p>We start with the Westminster System since it has several
+				requirements that are clearly structured, and the system operates
+				almost like an interface that has been extended and customized by
+				several other governments for various purposes (a lot of the Eastern
+				Bloc, India, Australia, Canada, Japan).</p>
+				<p>Next, we observe each part of the Westminster System to see which
+				parts can be be adapted and which parts seem repetitive, inapplicable
+				or superfluous. With this subset, we attempt to create a consensus
+				algorithm that is close to the spirit of the original system.</p>
+				<p>Finally we make comparisons to existing consensus algorithms and
+				draw some conclusions.</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="related-work" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">Related Work</div>
+			<br>
+			<p>Aside from the Lamport paper, trying to find previous work in the area
+			drawing inspiration from governments for distributed systems proved to be
+			challenging. However, widening our scope a bit, we were able to find some
+			interesting papers in related subjects that offer some insights and
+			support for our way of thinking.</p>
+
+			<p>One paper by Imamichi talks about "Distributed Information Systems and
+			Human Organization", which seemed promising but ended up being about the
+			effect of moving from centralized to distributed computer systems on
+			human organizations, and not about distributed systems-inspired human
+			organizations. Nonetheless the implication was that the system that
+			humans use to communicate and coordinate with each other has an effect on
+			how they conduct their daily business, which was promising.</p>
+
+			<p>Another paper by Axtell ties the idea of agent-based modelling in
+			Economics with Distributed Computing. This is a highly theoretical,
+			unfocused and sprawling paper that incorporates many ideas, and
+			criticizes the mathematical modelling approaches at the time for making
+			overly simplified assumptions of human systems. It likens human agents in
+			an economic system to "concurrent processes with heterogeneous
+			information". Interestingly, it argues that "real societies are
+			asynchronous", and then goes on to list the effects of this, most of
+			which are familiar to us from a distributed systems context. It also
+			portrays humans as agents having to constantly deal with incomplete and
+			out of date information and making best-effort decisions based on that.
+			If anything, this paper agrees with our hunch that humans deal with
+			distributed systems problems all the time, and provides further
+			justification for our investigation.</p>
+
+			<p>One of the citations for this paper, by Huberman and Hogg from Xerox
+			PARC, likens computer networks to market economies ("coordinating
+			asynchronous operations in the face of imperfect knowledge"), which is an
+			encouraging sign that we're looking at something interesting. However the
+			paper itself mostly deals with the allocation of resources and less about
+			consensus. One interesting point is that it warns about how humans are
+			more complex and slower than machines on a network, and that while in
+			distributed systems it's a nice approach to try to eliminate these
+			problems systematically (deploy uniform software on homogeneous machines,
+			build networks with ordering guarantees, etc), in the case of humans
+			we're often stuck with the eccentricities that come with them and need to
+			deal with them directly.</p>
+
+			<p>Finally, the field of Human Based Computation offers some interesting
+			insights. Systems like CAPTCHAs, Collaborative Filtering systems (like
+			Netflix or Yelp) can all be thought of as distributed consensus systems.
+			Many users voting 0 to 5 stars on a TV show over time is essentially a
+			distributed and asynchronous consensus process with no time limit. In
+			this field, incentive to participate is a big consideration -  the
+			assumption being that by default people might not want to participate and
+			they have to be attracted with some benefit. For us, it's the opposite -
+			in a legislative system, the benefits are often quite clear to the
+			participants, and it's rather a problem of attracting the right kind of
+			participant, which does not really affect how our model works.</p>
+<!--&gt;>>>>>> f661c88ef077f6c8a6397f4f2ed1531573c2f1cf-->
 		</div>
 	</div>
 
@@ -50,105 +147,200 @@
 
 	<div id="primer" class="section row">
 		<div class="col-md-12">
-			<div class="section-header">Introduction: What is the Westminster System?</div>
+			<div class="section-header">What is the Westminster System?</div>
 			<br>
-			<strong class="sub-heading">House of Commons</strong><br>
+			<p>
+			The Westminster System is a parliamentary system of government first
+			developed in the United Kingdom, rooted in the 11th century but
+			developing into the system we recognize in the 17th century. It was later
+			adopted widely around the world and is one of the earliest iterations of
+			a <b>modern</b> parliamentary model that has withstood the test of time,
+			making it a reasonable choice to study as an archetypal example of a real
+			world government consensus system.
+			</p>
+			<p>
+			Important characteristics of the Westminster System are:
+			</p>
+			<ul>
+				<li>
+					A <i>Monarch</i> who is the head of the entire state.
+				</li>
+				<li>
+					A <i>Prime Minister</i> who is the head of the executive branch.
+				</li>
+				<li>
+					A <i>House of Commons</i> and a <i>House of Lords</i> which together
+					form a bicameral legislative branch. Unicameral variants exist, but
+					are less common, like Israel and New Zealand.
+				</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">The Monarch</strong><br/>
+			<ul>
+				<li>Terms are often unelected, lifelong and hereditary</li>
+				<li>Is not involved in the day to day operation of government</li>
+				<li>Makes appointments based on the advice of the House and Prime Minister</li>
+				<li>Has limited reserve powers (granting pardons, delaying legislation,
+					dismissing a prime minister) that can be exercised only under
+					exceptional circumstances</li>
+				<li>In some "disintermediated" countries like Ireland and Israel, the
+					head of state is purely ceremonial and performs no function</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">The Prime Minister</strong><br>
+			<ul>
+				<li>Usually the leader of the party with the most elected seats in the
+					House of Commons, customarily appointed by the Monarch</li>
+				<li>Selects a cabinet of advisors to form and lead the executive branch</li>
+				<li>Is "Primus inter pares": First among equals, meaning officially the
+					PM has the same powers as the Cabinet and must consult with the
+					Cabinet for all decisions, but informally is accorded additional
+					respect, finalizes all decisions, etc.</li>
+				<li>Can be forced to resign if they lose a vote of confidence in the House of Commons</li>
+				<li>Terms are for five years with no term limit</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">The House of Commons</strong><br>
 			<ul>
 				<li>Represent different constituencies across the country</li>
-				<li>One representative maps to one constituency</li>
-				<li>Constituencies are decided by Boundary Commissions</li>
+				<li>Convene regularly to suggest, discuss, and agree upon bills that define new laws</li>
+				<li>One representative maps to one constituency, the borders of which
+					are often decided by independent Boundary Commissions</li>
 				<li>In the UK, this is the lower house with 650 seats</li>
 				<li>Can reject a motion of confidence to force resignation by the Prime Minister</li>
-				<li>A Speaker and Opposition Leader are selected</li>
-				<li>No term limit</li>
-				<li>Elected every 5 years or when Parliament dissolves</li>
+				<li>A Speaker and Opposition Leader are elected</li>
+				<li>Terms are for five years with no term limit, or end when Parliament dissolves</li>
 			</ul>
 
 			<br>
-			<strong class="sub-heading">House of Lords</strong><br>
+			<strong class="sub-heading">The House of Lords</strong><br>
 			<ul>
 				<li>Members are considered to be domain experts</li>
+				<li>Convene regularly to scrutinize bills passed by the House of Commons</li>
 				<li>Most members are appointed, some are elected</li>
-				<li>Total number of members is not fixed (currently 781)</li>
+				<li>In the UK, total number of members is not fixed (currently 781)</li>
 				<li>Members usually come from the House of Commons</li>
-				<li>Scrutinize bills passed by the House of Commons</li>
 				<li>Cannot prevent bills from being passed into law, but can force the Commons to reconsider votes and delay a process</li>
-				<li>Terms are 15 years</li>
-				<li>Members are capped at 1 term</li>
+				<li>Terms are 15 years, capped at 1 term for elected members, except for some special members who are appointed for life.</li>
 			</ul>
-
-			<br>
-			<strong class="sub-heading">Monarch</strong><br>
-			<ul>
-				<li>Makes appointments based on the advice of the House and Prime Minister</li>
-				<li>Terms are lifelong and hereditary</li>
-				<li>There is no election</li>
-			</ul>
-
-			<br>
-			<strong class="sub-heading">Prime Minister</strong><br>
-			<ul>
-				<li>Selects a cabinet of advisors</li>
-				<li>Appointed by the Monarch as a person with the confidence of the House of Commons</li>
-				<li>"Primus inter pares": First among equals</li>
-				<li>Can be forced to resign if they lose a vote of confidence</li>
-				<li>Terms are "at her majesty's pleasure"</li>
-			</ul>
-
-			<br>
-
-			<p>This is an extremely reductive representation of only parts of the Parliament system. There is also a judiciary system which
-				we will not be exploring in this project, because revision and review of a corpus of data that has already been agreed upon
-				occurs in the Parliament in our model system.</p>
-
-			<p>It is worth highlighting a few key characteristics we want to embrace, and others we will not be including in the project.
-				The House of Commons serves a shorter cycle than the House of Lords, which allows for staggered voting and different leases.
-				This means the House of Lords can best represent local changes to a network if machines are added and dropped - this form
-				of representation will be most responsive. However, choosing the representatives of a large scale system that often may
-				delay the speed of decision making. This makes the bicameral structure ideal, where the House of Lords is less responsive
-				but more stable over time.</p>
-
-			<p>Although the term limits are worth integrating into the system, we did not include the proportion of each
-				as it currently exists in the Parliament. The House of Lords in reality is larger than the House of Commons,
-				but in this system, but House of Lords will be significantly smaller.</p>
-
-			<p>Apart from the federated model of decision making, we will also be including votes of confidence. These will be regularly
-				initiated, and can serve to either terminate or renew the lease of a serving prime minister, which, in this case, is automatically
-				enduring unless a Vote of No Confidence occurs.</p>
-
-			<p> Lastly, a Monarch will not be included in this system. In our use case of the Westminster System as a distributed system, it is
-			difficult to imagine a system in which any machine is as permanent as a Monarch, that is not selected or renewed by consensus.</p>
 
 		</div>
 	</div>
 
+
+	<div id="keep" class="section row">
+		<div class="col-md-12">
+			<div class="section-header">What's worth keeping?</div><br/>
+
+			<p>
+			The above description is an extremely reductive version of the real
+			system as implemented. The first thing that struck us after researching
+			the Westminster System is just how complicated it is, with many tedious
+			details, exceptions and special cases along with many practices that are
+			seemingly there only for historical reasons. So we included only the
+			salient points.
+			
+			From what remains, it is worth highlighting a few key characteristics we
+			want to embrace, and others we would like to omit before we describe the
+			system in full.
+
+			</p>
+
+				<p>One notable detail about how the actual Westminster System works is
+					that the elected representatives represent different geographical
+					regions. This reminded us of global, federated networks of computers
+					with layers of structure (e.g. in-datacenter versus across the
+					world), so we chose that as the scenario to build towards.
+				</p>
+
+				<p>A Monarch will not be included in this system because we
+				struggled to find a purpose for this mostly ceremonial role. Also in
+				any distributed system, it is difficult to imagine a system in which
+				any machine is as permanent as a Monarch, that is not selected or
+				renewed by consensus.
+				</p>
+
+				<p>In the Westminster System, The House of Commons serves a different,
+					shorter cycle than the House of Lords. This is an interesting idea,
+					because it allows for two different classes of members that have
+					staggered leases, which might eliminate a situation where everyone
+					voting or changing at the same time causes problems. The "thundering
+					herd problem" is one example where every node in a system doing
+					things simultaneously causes undesirable spikes in resource usage
+					resources and bandwidth problems.
+
+					The House of Lords can best represent local changes to a network if
+					machines are added and dropped - this form of representation will be
+					most responsive. However, choosing the representatives of a large
+					scale system too often may delay the speed of decision making. This
+					makes the bicameral structure favorable, where the House of Lords is
+					less responsive but more stable over time.
+				</p>
+				<p>
+					Term limits are also an interesting idea - it prevents members of the
+					system from becoming "special", which would imply an over-reliance on
+					those members which might cause reliability issues.
+
+					It is a truism in reliable systems that things that happen rarely are
+					error-prone because they end up being not well-tested in the real
+					world. For example, failover in traditional data systems is something
+					that systems administrators fear. Netflix's Chaos Monkey is an
+					interesting approach to this problem: by inducing failure on purpose,
+					they make failover a routine scenario rather than an exceptional one.
+
+					Term limits are a similar idea: nodes have to swap duties after a
+					certain period of time, so that swapping duties becomes routine.
+
+					Although term limits are worth integrating into the system, we did
+					not include the proportion of each as it currently exists in the
+					Parliament. The House of Lords in reality is larger than the House of
+					Commons, but in this system, but House of Lords will be significantly
+					smaller.
+				</p>
+				<p> A vote of confidence regulates the term of the Prime Minster. These
+				will be regularly initiated, and can serve to either terminate or renew
+				the lease of a serving prime minister, which, in this case, is
+				automatically enduring unless a Vote of No Confidence occurs. </p>
+				<p>There is a judiciary in the Westminster System whose job it is to
+				interpret and apply the laws that the legislative branch agrees upon.
+				Since in our case "laws" are merely values in a distributed system,
+				there isn't really anything to interpret and apply.
+				</p>
+			</div>
+		</div>
+
 	<hr>
 
-	<div id="primer" class="section row">
+	<div class="row section">
 		<div class="col-md-12">
-			<div class="section-header">System Design</div>
+			<div class="section-header">System Components</div>
 			<br>
-			<strong class="sub-heading">Assumptions about the Underlying System Structure</strong><br><br>
-			<strong>Network Structure</strong><br>
+			<p> We can now describe our Westminster-inspired system. </p>
+
+			<strong class="sub-heading">Network Structure</strong><br><br>
 			<p>We assume a network in which there are geographically distributed machines across a broad scale. If not
-				geographically distributed, this system is modelled after machines that represent diverse services,
+				geographically distributed, this system is modeled after machines that represent diverse services,
 				products or operations such that inclusion of different "districts" or zones is important. In this way,
 				the use of constituencies to partition the network into smaller districts for hierarchical voting makes sense.
 				If some decisions to be made are localized to specific districts, then a vote can occur internally, without
 				continuing to deeper levels of the hierarchy before reaching an answer. This can improve efficiency and availability
 				in the larger system, and better utilize the local system.</p>
 
-			<p>Such an assumption requires tools to partition networks. Several
-			algorithms (dubbed "community detection") already exist that use
-			different heuristics to separate topologies into smaller clusters which
-			we will consider to be districts:
+			<p>Such an assumption requires tools to partition the network into
+			districts. If we wanted to do this automatically, a starting point could
+			be algorithms (dubbed "community detection") that use different
+			heuristics to separate topologies into smaller clusters:
+			</p>
 
 			<ul>
 				<li>The classic example, the Kernighan-Lin algorithm, attempts to
 					partition a graph into sections while minimizing the number of
 					connections needed between each section (network modularity). This
 					could perhaps be employed in situations where the network topology is
-					a limiting factor.
+					a limiting factor, which is often.
 				</li>
 				<li>There are also modern variants such as Newman's "fast" algorithm
 					which uses greedy optimization to minimize the modularity metric and
@@ -162,52 +354,101 @@
 				</li>
 			</ul>
 
-			<br/>
+			<p>
+			A simpler and perhaps more practical scenario is that geographic or
+			function based boundaries are already apparent to the operators and which
+			district each node belongs to and an arbitrary leader for that district
+			is manually bootstrapped into the system as it is started. After that,
+			the system can determine things automatically.
+			</p>
 
-			<strong>Commodity Machines</strong><br>
-			<p>We assume the system is composed of several commodity machines. This practically makes sense, as large
-			scale distributed systems do not depend on reliable machines to construct reliable systems. In this system design,
-			we handle the addition or removal of machines with shorter leases for local leader terms. This allows
-			for local leader elections to be more responsive to changes in local districts. Machines also maintain reputations
-			which are based on some heuristic. Machines that have proven more "trustworthiness" score higher reputation
-			metrics, which are used to appoint machines to higher serving positions and carry more voting power.</p>
+			<strong class="sub-heading">Properties of the members</strong><br><br>
+			<p>
+			We don't make any special assumptions regarding the reliability of
+			machines: we assume the system is composed of heterogeneous commodity
+			machines. This reflects the situation in the real world, and makes sense
+			from a distributed systems point of view as it is impractical to try to
+			build specialized hardware to eliminate failure at a large scale.
+			</p>
 
-			<strong>Operations Expected</strong><br>
-			<p>This system can support local leader election (Commons), the selection of the next layer (Lords), global leader
-			election (PM), and standard CRUD operations. Some operations can be handled locally, for example, reads or
-			writes for local districts that do not need consensus among the entire system (could be useful for temporary logs).</p>
+			<p>
+			One way that individual reliability is maintained in real parliamentary
+			systems is a reputation system: members who do bad things eventually are
+			recognized as being bad.
+
+			In this vein, we can include a mechanism where machines maintain
+			reputation values for other machines which are based on desirable
+			heuristics such as network uptime (similar to seniority), speed of
+			response, quality of response, etc. These can be combined into a single
+			"reputation" metric. These perhaps need not be consistent across
+			different machines: different machines may care about different
+			properties.
+			
+			Machines can these use these reputation metrics when deciding who to vote
+			for in higher positions. </p>
+
+			<strong class="sub-heading">Relationships Between The Members</strong><br><br>
+			<p>
+			After machines are organized into districts, districts internally elect
+			its representative for the house of commons. Then a group of
+			representatives 
+
+			The purpose of this tiering can be twofold:
+			</p>
+
+			<p> First, a federated system with many subsystems can have certain
+			information that needs to only be shared with a local group of nodes,
+			while others which concern everyone in the system. This might be due to
+			geographical distance, or due to the fact that specific nodes perform
+			specific functions that don't concern other nodes. Consensus over global
+			values require more and longer communication, which makes them more
+			expensive in terms of time and bandwidth usage. So mandating global
+			consensus for every bit of data is inefficient. A tiered system allows
+			the members to avoid this inefficiency whenever possible.
+			</p>
+
+			<p>
+			Second, it separates internal and external communication. This helps
+			because flowing all non-local requests through a single node allows for
+			efficiency improvements such as batching messages.
+
+			This also helps with scaling: in a system where every node communicates
+			with every other node, the cost of communication is n squared. Dividing
+			up and grouping the nodes based on task or geography helps reduce this
+			effect at the global level.
+			</p>
+
+			<strong class="sub-heading">House of Commons</strong><br><br>
+			<ul>
+				<li>Members are winners of district elections</li>
+				<li>Relay requests from district to house if valid</li>
+				<li>Collect requests that cannot be handled without consensus (write) until next Parliament meeting</li>
+				<li>Load balancer for reads that can be managed at the district level (do not pass operation up hierarchy)</li>
+				<li>Re-elect at regular interval, shortest lease of all positions</li>
+				<li>Serve as the most responsive body to local district changes in network</li>
+			</ul>
+
+			<br>
+			<strong class="sub-heading">House of Lords</strong><br><br>
+			<ul>
+				<li>Members are selected during elections from the top 1/4 highest scoring current house members</li>
+				<li>Longer term leases</li>
+				<li>Vote on writes generated at the House of Commons and passed up from their districts</li>
+				<li>When a vote reaches consensus, report to PM to actually internalize the operation in the system</li>
+				<li>"Domain" experts based on reputation scores</li>
+			</ul>
+
+
+			<br>
+			<strong class="sub-heading">Prime Minister</strong><br><br>
+			<ul>
+				<li>When consensus is reached, handles the writes and broadcasts to the system about changes</li>
+				<li>Serves for a term as a stable leader (multi-Paxos)</li>
+				<li>Leader transitions are the same as those in Multi-Paxos</li>
+			</ul>
+
 		</div>
 	</div>
-	<hr>
-
-	<div class="row section">
-		<div class="col-md-12">
-			<div class="section-header">System Components</div>
-			<br>
-			<strong class="sub-heading">House of Commons</strong><br>
-			<ul>
-			</ul>
-
-			<br>
-			<strong class="sub-heading">House of Lords</strong><br>
-			<ul>
-			</ul>
-
-
-			<br>
-			<strong class="sub-heading">Prime Minister</strong><br>
-			<ul>
-			</ul>
-
-			<br>
-			<strong class="sub-heading"></strong><br>
-			<p></p>
-
-			<br>
-			<strong class="sub-heading"></strong><br>
-			<p></p>
-		</div>
-	</div>
 
 	<hr>
 
@@ -217,18 +458,52 @@
 
 	<hr>
 
-	<div id="landscape" class="section row">
+	<div id="districtsystem" class="section row">
 		<div class="col-md-12">
 			<div class="section-header">The District Level System</div>
 			<Br>
 			<br>
 			<div class="sub-heading">A Toy Model</div>
-			In this visualization, we present a local district voting system. The system starts with Node 0 as its
+			<p>In this visualization, we present a local district voting system. The system starts with Node 0 as its
 			elected local leader. The first panel (center) represents the scoring metrics updating, establishing a reputation
 			on the machines. The top scoring machine is offered a ballot position in the next election, and the current
 			leader will broadcast to all nodes in the district that an election is occuring. Constituent nodes must
 			respond within a fixed amount of time for their vote to count, and the leader announces the newly elected leader
-			by broadcasting to all nodes. A log of the internal system actions is maintained on the right side.
+				by broadcasting to all nodes. A log of the internal system actions is maintained on the right side.</p>
+
+			<p>The visualization features 3 specific operations. The first, in greater detail is the local election
+			protocol. At a regular interval, the current leader (based on its own internal time) will initiate an election.
+			This happens when the leader node (shown in blue) broadcasts a message to all nodes in the district. This model currently
+			assumes all nodes in a district are completely connected. This is not a requirement, however, as messages
+			can be relayed through other connected nodes. Once nodes receive the election notification, they submit a
+			ballot within a certain period of time. The ballot confirms that the node will vote for the top performing
+			node in the district, based on its reputation metrics. Those metrics are displayed at the top of the middle
+			panel, in a dictionary. Once the leader (the district representative) receives and processes votes, it will
+			broadcast the result, and leaders will transition. The transition includes the transfer of a ledger of
+			pending requests from the current leader to the new leader, if the leader is changing.</p>
+
+			<p>The reputation scores are maintained in a dictionary, displayed in the middle panel. In our implementation,
+			reputation is randomly selected from a distribution, and the scores are assigned the same way for the current
+			leader and for the rest of the nodes in the district. However, we imagine that in a real system, a longer
+			tenure may translate to a better score, and heuristics for this should be specifically selected for the
+			needs of the design of that system.</p>
+
+			<p>The next operation is a read request. One benefit of the federated consensus model is that it can
+			dramatically reduce the size of a network based on the work being done. In this case, reads are handled
+			by their district representatives (House of Commons members for each constituency). Because they are
+			not mutating anything, a district representative can simply collect requests, and operate as an intermediate
+			layer between district nodes and data stores. Districts, by this nature, will also handle their own caches.
+			This can be particularly useful if the network is zoned into districts based on the behaviors they
+			exhibit. This leads to caches that may better serve the needs of a district than a more generic cache. </p>
+
+			<p>The final operation is a write request. A randomly selected node in the district sends a request to the
+				current leader. This request is then handled, and either added to a ledger or discarded if it conflicts
+				with another request already in the system (an example of this is account creation). The requests that
+				do remain are appended to the Write Queue, which is displayed in the center panel. Write queues are
+				managed at the district level, and are only emptied during Parliamentary Sessions. The action on
+				district write queues is better explained in the visualization following this one.
+			</p>
+
 			<br><br>
 
 			<button class="btn btn-default" id="exampleRunElection">Run Election</button>
@@ -250,6 +525,14 @@
 				<div class="col-md-3" id="exampleLog"><strong>SYSTEM LOG</strong><BR><br><div id="log-text"></div></div>
 			</div>
 
+			<br><br><br><br><br>
+			<strong class="sub-heading"></strong><br>
+			<p>This model has some strengths and weaknesses, and of course is a simplification of the nuances of a real
+			implementation of such a system. However, where there are details that need to be filled in, we have abstracted
+			components that represent the higher level system design. One key take away from this system is that it
+			handles requests differently, depending on what they are, and that district representatives in the House
+			of Commons can serve as load balancers for requests.</p>
+
 		</div>
 	</div>
 
@@ -265,6 +548,64 @@
 			<Br>
 			<br>
 			<div class="sub-heading">A Toy Model</div>
+
+			<br>
+			<strong class="sub-heading"></strong><br>
+			<p>In this visualization, we cover the interactions between districts, between districts and the House,
+				and internally in the house. The top section (directly below here) displays an example of a network
+				divided into 12 districts. Each district has been partitioned based on some heuristic (we discuss this
+				in greater detail in the analysis section). Within each district is a graph of the nodes included, a
+				leader which has been highlighted in blue, and a write queue which has aggregated locally. The elements
+				displayed in each of the 12 containers here are carried over from the previous model of a district's
+				interactions. The leader in blue is elected the same way it was shown in the previous visualization, but
+				the process is not shown in full detail here, because of scale.
+			</p>
+
+			<p>
+				Below the districts is the House of Commons, featuring one representative per district. One of these
+				members is also the Prime Minister of the network. Each node in the House is labelled with
+				[districtId].[memberId]. The Prime Minister is shown in blue, and in our representation, the network
+				of the House of Commons is also fully connected, though as long as messages can reach all nodes from
+				all other nodes in the House, such a model could work.
+			</p>
+
+			<p>In the middle panel, we display another dictionary containing reputation scores for each district in the
+				House. These scores are tied to the weighed and combined performance of the district at large, and
+				its selected representative. Below the reputation board is another write queue. This one is maintained
+				at the House level. We discuss this in further detail in the "Parliament Session" below.
+			</p>
+
+			<p>
+				The first operation we provide here is a Parliament Session. As pointed out in the previous section,
+				districts collect write queues locally until a Parliament Session is called by the PM, at a regular
+				interval. The Prime Minister initiates the meeting, by sending a request to each House member, one at a
+				time. The members then return to the Prime Minister with their write requests, from the write queues
+				they maintain for their districts. The Prime Minister sends out ballots in batches from those queues
+				to all members of the House for voting. Once received, House members submit their votes in batches and
+				the Prime Minister broadcasts the result. The PM then reviews the votes, and either can discard a request,
+				process a request directly, or append it to the House ledger to pass on to the Lords for another
+				round of voting to establish consensus when critical. Then, the Prime Minister follows by sending the
+				next district a request for its queue. It performs this operation in round robin style, where each
+				district is given a time slot based on its districtId.
+			</p>
+
+			<p>
+				The next operation is a Vote of Confidence. This can either be initiated by a node in the House upon
+				request, or at a regular interval based on the lease of a prime minister. The Vote proceeds by the
+				leader initiating a broadcast to the house for preserving its seat. The members receive the request,
+				submit a vote (based on a performance heuristic, ie. scoreboard), and the prime minister processes
+				this. Finally, if more than 50% of members approve, the prime minister stays. Otherwise, there is a
+				transition of leadership to the highest reputation member of the House.
+			</p>
+
+			<p>
+				The final operation is the relection of members of the house. Each district staggers its votes, and
+				will carry out the voting procedure outlined in the first visualization. As those districts update their
+				leaders, they are updated in the house voting and will resume carrying out votes that in progress, if
+				a parliament meeting was called or if the leader node failed. The node serving as prime minister is not
+				re-elected during this time. Instead, if the prime minister fails a vote of confidence, the district
+				will re-elect their representative and a new PM is selecting in the interim. 
+			</p>
 
 			<br><br>
 			<strong CLASS="sub-heading">DISTRICTS</strong>
@@ -309,68 +650,32 @@
 				<div class="col-md-3" id="commonsLog"><strong>SYSTEM LOG</strong><BR><br><div id="commons-log-text"></div></div>
 			</div>
 
+
+
+			<!--<br><br><br><br><br>-->
+			<!--<strong class="sub-heading"></strong><br>-->
+			<!--<p>In our system, </p>-->
 		</div>
 	</div>
 
 	<hr>
 
-	<div id="related-work" class="section row">
+	<div id="analysis" class="section row">
 		<div class="col-md-12">
-			<div class="section-header">Related Work</div>
+			<div class="section-header">Design Analysis</div>
 			<br>
-			<p>Aside from the Lamport paper, trying to find previous work in the area
-			of simulating parliaments as distributed systems proved to be
-			challenging. However, widening our scope a bit, we were able to find some
-			interesting papers in related subjects that offer some insights.</p>
+			<p>
+				<!--talk about these points:
+				- this is a weaker system for small scale networks where a hierarchy does not make sense
+				- need to select the zoning algorithm for districts based on the behavior observed in the network
+				- if you can naturally balance loads at district levels, this can reduce load on the system as a whole when
+				only district-level consensus is needed for some data
+				- moves critical requests up a hierarchy - model is good for balancing systems where there are diffrent
+				requirements for consistency at the same time (some things are critical, others are local)
+				- several leader elections are required - we stagger ours the same way a company would during a failover
+	-->
 
-			<p>One paper by Imamichi talks about "Distributed Information Systems and
-			Human Organization", which seemed promising but ended up being about the
-			effect of moving from centralized to distributed computer systems on
-			human organizations, and not about distributed systems-inspired human
-			organizations. Nonetheless the implication was that the system that
-			humans use to communicate and coordinate with each other has an effect on
-			how they conduct their daily business, which was promising.</p>
-
-			<p>Another paper by Axtell ties the idea of agent-based modelling in
-			Economics with Distributed Computing. This is a highly theoretical,
-			unfocused and sprawling paper that incorporates many ideas, and
-			criticizes the mathematical modelling approaches at the time for making
-			overly simplified assumptions of human systems. It likens human agents in
-			an economic system to "concurrent processes with heterogeneous
-			information". Interestingly, it argues that "real societies are
-			asynchronous", and then goes on to list the effects of this, most of
-			which are familiar to us from a distributed systems context. It also
-			portrays humans as agents not necessarily solving the problems of
-			distributed systems but having to constantly deal with incomplete and out
-			of date information and making best-effort decisions based on that. If
-			anything, this paper agrees with our hunch that humans deal with
-			distributed systems problems all the time, and provides further
-			justification for investigating.</p>
-
-			<p>One of the citations for this paper, by Huberman and Hogg from Xerox
-			Parc, likens computer networks to market economies ("coordinating
-			asynchronous operations in the face of imperfect knowledge"), which is an
-			encouraging sign that we're looking at something interesting. However the
-			paper itself mostly deals with the allocation of resources and less about
-			consensus. One interesting point is that it warns about how humans are
-			more complex and slower than machines on a network, and that while in
-			distributed systems it's a nice approach to try to eliminate these
-			problems systematically (deploy uniform software on homogenous machines,
-			build networks with ordering guarantees, etc), in the case of the humans
-			we're often stuck with the eccentricities that come with them and need to
-			deal with them directly.</p>
-
-			<p>Finally, the field of Human Based Computation offers some interesting
-			insights. Systems like CAPTCHAs, Collaborative Filtering systems (like
-			Netflix or Yelp) can all be thought of as distributed consensus systems.
-			Many users voting 0 to 5 stars on a TV show over time is essentially a
-			distributed and asynchronous consensus process with no time limit. In
-			this field, incentive to participate is a big consideration -  the
-			assumption being that by default people might not want to participate and
-			they have to be attracted with some benefit. For us, it's the opposite -
-			in a legislative system, the benefits are often quite clear to the
-			participants, and it's rather a problem of attracting the right kind of
-			participant, which might not really affect how our model works.</p>
+			</p>
 		</div>
 	</div>
 
@@ -381,7 +686,11 @@
 			<div class="section-header">Conclusions and Future Work</div>
 			<br>
 			<p>
-			Lorem ipsum dolor sit amet
+				<!--
+				- districts can be different sizes, we do not model that here
+				- reputation metrics also should be based on real data, in our toy model we don't have that
+				-
+				-->
 			</p>
 		</div>
 	</div>
@@ -391,6 +700,11 @@
 			<div class="section-header">Citations</div>
 			<br/>
 			<ul>
+				<li>
+					Lamport, 1982, "The Byzantine Generals Problem"
+					ACM Transactions on Programming Languages and Systems (TOPLAS) 
+					<a href="https://dl.acm.org/citation.cfm?id=357176">https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf</a>
+				</li>
 				<li>
 					Lamport, 1998, "The Part-Time Parliament"
 					ACM Transactions on Computer Systems

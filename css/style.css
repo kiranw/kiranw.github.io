@@ -82,6 +82,11 @@ circle.leader+text{
   display:inline-block;
 }
 
+.col-md-2{
+  word-wrap: break-word;
+  display: inline-block;
+}
+
 
 #log-text, #commons-log-text  {
   height: 400px;
