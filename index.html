@@ -28,8 +28,7 @@
 	<div id='cards'>
 		<div>
 			<a href="about.html">
-				<img src="cards/intro.gif" alt="HEY
-	I’m Kiran. Check out my work!" />	
+				<img src="cards/intro.gif" alt="HEY	I’m Kiran. Check out my work!" />
 			</a>		
 		</div>
 
@@ -165,7 +164,17 @@
 	</div>
 </div>
 
-<img class="blink rainbow" src="img/scroll-red.png">
+<script>
+    function scrollHorizontal(){
+        console.log("being called");
+        var leftPos = $("#scroll").scrollLeft();
+        console.log(leftPos);
+        $("#scroll").animate({scrollLeft: leftPos + 200}, 200);
+        console.log($("#scroll").scrollLeft());
+    }
+</script>
+
+<img onmouseover="scrollHorizontal()" class="blink rainbow" src="img/scroll-red.png">
 <div id='links'>
 	<a href='https://github.com/kiranw'><span class='fa fa-github'></span></a>
 	<a href='mailto:kiranw@mit.edu'><span class='fa fa-envelope'></span></a>
@@ -174,6 +183,8 @@
 	<a href='http://linkedin.com/in/kiranw'><span class='fa fa-linkedin'></span></a>
 	<a href='http://www.youtube.com/channel/UC8NTzsXi4SO-7Slm7dG3gNw'><span class='fa fa-youtube-play'></span></a>
 </div>
+
+
 
 </body>
 </html>
