@@ -1,7 +1,58 @@
+@font-face {
+  font-family: National-Book;
+  src: url("fonts/National-Book.otf");
+}
+
+@font-face {
+  font-family: National;
+  src: url("fonts/National-Regular.otf");
+}
+
+@font-face {
+  font-family: National-RegularItalic;
+  src: url("fonts/National-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: National-Medium;
+  src: url("fonts/National-Medium.otf");
+}
+
+@font-face {
+  font-family: National-BookItalic;
+  src: url("fonts/National-BookItalic.otf");
+}
+
+@font-face {
+  font-family: National-Semibold;
+  src: url("fonts/National-Semibold.otf");
+}
+
+@font-face {
+  font-family: National-SemiboldItalic;
+  src: url("fonts/National-SemiboldItalic.otf");
+}
+
+@font-face {
+  font-family: National-Bold;
+  src: url("fonts/National-Bold.otf");
+}
+
+@font-face {
+  font-family: National-ExtraboldItalic;
+  src: url("fonts/National-Extrabold.otf");
+}
+
+@font-face {
+  font-family: National-ExtraboldItalic;
+  src: url("fonts/National-Extrabold.otf");
+}
+
+
 html, body {
 	margin: 0;
 	height: 100%;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'National', sans-serif;
 	/*overflow: hidden;*/
 }
 
@@ -117,11 +168,30 @@ html, body {
 	font-size: 1.3em;
 }
 
+#links.dark-links {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	background-color: rgba(255,255,255,0.05);
+	text-align: center;
+	font-size: 1.3em;
+}
+
 #links a {
 	color: #777;
 	text-decoration: none;
 	display: inline-block;
 	margin: 14px;
+}
+
+
+#links.dark-links a {
+	color: rgba(255,255,255,0.5);
+}
+
+#links.dark-links a:hover {
+	color: rgba(255,255,255,0.8);
 }
 
 .blink {

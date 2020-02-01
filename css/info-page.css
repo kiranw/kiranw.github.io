@@ -1,6 +1,48 @@
+@font-face {
+  font-family: National-RegularItalic;
+  src: url("fonts/National-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: National-Medium;
+  src: url("fonts/National-Medium.otf");
+}
+
+@font-face {
+  font-family: National-BookItalic;
+  src: url("fonts/National-BookItalic.otf");
+}
+
+@font-face {
+  font-family: National-Semibold;
+  src: url("fonts/National-Semibold.otf");
+}
+
+@font-face {
+  font-family: National-SemiboldItalic;
+  src: url("fonts/National-SemiboldItalic.otf");
+}
+
+@font-face {
+  font-family: National-Bold;
+  src: url("fonts/National-Bold.otf");
+}
+
+@font-face {
+  font-family: National-ExtraboldItalic;
+  src: url("fonts/National-Extrabold.otf");
+}
+
+@font-face {
+  font-family: National-ExtraboldItalic;
+  src: url("fonts/National-Extrabold.otf");
+}
+
+
+
 body {
 	margin-left:6vw;
-	font-family: 'Roboto';
+	font-family: 'National';
 	overflow-x: hidden;
 	/*font-size:1.5em;*/
 }
@@ -8,7 +50,7 @@ body {
 a {
 	color: black;
 	text-transform: uppercase;
-	font-family: 'Roboto';
+	font-family: 'National';
 	font-weight: 500;
 	cursor: pointer;
 }
@@ -91,18 +133,25 @@ a {
 
 .skills span{
 	float:left;
-	margin-right:2vw;
+	font-size: 0.8em;
+	margin-right:0.5vw;
 	background-color: #e63153;
-	padding:8px;
-	border-radius:4px;
+	padding:5px 10px;
+	border-radius:5px;
 	color: white;
 	margin-bottom:1vh;
+}
+
+
+.skills span:hover{
+	background-color: rgb(255, 82, 114);
 }
 
 .title {
 	font-size:1.3em;
 	font-weight:500;
 	margin-top:12vh;
+	font-family: "National-Bold";
 }
 
 .textbox {
@@ -131,6 +180,7 @@ a {
 
 .clear {
 	clear:both;
+	margin-bottom: 5vh;
 }
 
 .label {
@@ -159,4 +209,9 @@ a {
 	float: left;
 	width: 50vw;
 	height:auto;
+}
+
+#divide-pic {
+	width:60%;
+	margin-left: 20%;
 }
