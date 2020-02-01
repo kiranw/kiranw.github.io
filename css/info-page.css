@@ -66,13 +66,22 @@ a {
 	float: left;
 	vertical-align: middle;
 }
+#about-header a:hover {
+	color: #e63153;
+}
 #about-header img {
 	margin-right: 40vw;
 	height:8vh;
 	width: auto;
 	float: left;
 	margin-top:-4vh;
-	/*vertical-align: middle;*/
+	-webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+#about-header a img:hover {
+  -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
 }
 
 #about-text {
@@ -129,6 +138,10 @@ a {
 	font-size:1.3em;
 	margin-bottom: 5vh;
 	width: 100vw;
+}
+
+.skills {
+	width: 80%;
 }
 
 .skills span{
