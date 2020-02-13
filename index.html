@@ -8,6 +8,7 @@
 	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>
 	<link rel='stylesheet' href='css/style.css'/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 
@@ -22,6 +23,8 @@
   ga('send', 'pageview');
 </script>
 
+<div id="scroll-left-detector"></div>
+<div id="scroll-right-detector"></div>
 
 <div id='scroll'>
 	<div id='cards'>
@@ -146,15 +149,7 @@
 	</div>
 </div>
 
-<script>
-    function scrollHorizontal(){
-        console.log("being called");
-        var leftPos = $("#scroll").scrollLeft();
-        $("#scroll").animate({scrollLeft: leftPos + 50}, 300);
-    }
-</script>
-
-<img onmouseover="scrollHorizontal()" class="blink rainbow" src="img/scroll-red.png">
+<img id="scroll-input" class="blink rainbow" src="img/scroll-red.png">
 <div id='links'>
 	<a href='https://github.com/kiranw'><span class='fa fa-github'></span></a>
 	<a href='mailto:kiranw@mit.edu'><span class='fa fa-envelope'></span></a>
