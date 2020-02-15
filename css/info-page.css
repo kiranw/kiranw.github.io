@@ -1,41 +1,51 @@
 @font-face {
+  font-family: National-Book;
+  src: url("../fonts/National-Book.otf");
+}
+
+@font-face {
+  font-family: National;
+  src: url("../fonts/National-Regular.otf");
+}
+
+@font-face {
   font-family: National-RegularItalic;
-  src: url("fonts/National-RegularItalic.otf");
+  src: url("../fonts/National-RegularItalic.otf");
 }
 
 @font-face {
   font-family: National-Medium;
-  src: url("fonts/National-Medium.otf");
+  src: url("../fonts/National-Medium.otf");
 }
 
 @font-face {
   font-family: National-BookItalic;
-  src: url("fonts/National-BookItalic.otf");
+  src: url("../fonts/National-BookItalic.otf");
 }
 
 @font-face {
   font-family: National-Semibold;
-  src: url("fonts/National-Semibold.otf");
+  src: url("../fonts/National-Semibold.otf");
 }
 
 @font-face {
   font-family: National-SemiboldItalic;
-  src: url("fonts/National-SemiboldItalic.otf");
+  src: url("../fonts/National-SemiboldItalic.otf");
 }
 
 @font-face {
   font-family: National-Bold;
-  src: url("fonts/National-Bold.otf");
+  src: url("../fonts/National-Bold.otf");
 }
 
 @font-face {
   font-family: National-ExtraboldItalic;
-  src: url("fonts/National-Extrabold.otf");
+  src: url("../fonts/National-Extrabold.otf");
 }
 
 @font-face {
   font-family: National-ExtraboldItalic;
-  src: url("fonts/National-Extrabold.otf");
+  src: url("../fonts/National-Extrabold.otf");
 }
 
 
@@ -43,38 +53,39 @@
 body {
 	margin-left:6vw;
 	font-family: 'National';
-	overflow-x: hidden;
-	/*font-size:1.5em;*/
 }
 
 a {
 	color: black;
-	text-transform: uppercase;
 	font-family: 'National';
-	font-weight: 500;
+	font-weight: 400;
 	cursor: pointer;
 }
 
 #about-header {
 	top: 7vh;
-	/*margin-left: 6vw;*/
 	position: absolute;
 	font-size: 1em;
 }
+
 #about-header a {
-	margin-right: 6vw;
+	min-width: 15vw;
+	text-align: right;
 	float: left;
 	vertical-align: middle;
+	text-transform: uppercase;
 }
+
 #about-header a:hover {
 	color: #e63153;
 }
+
 #about-header img {
-	margin-right: 40vw;
-	height:8vh;
+	margin-right: 36vw;
+	margin-top:-3vh;
+	height:6vh;
 	width: auto;
 	float: left;
-	margin-top:-4vh;
 	-webkit-transition: -webkit-transform .8s ease-in-out;
     transition: transform .8s ease-in-out;
 }
@@ -83,6 +94,16 @@ a {
   -webkit-transform: rotate(-10deg);
       transform: rotate(-10deg);
 }
+
+.bio-about-text {
+	font-size: 1.2em;
+}
+
+.bio-about-text .text-highlight {
+	text-decoration: none; color: black;
+    font-family: "National-Semibold";
+}
+
 
 #about-text {
 	margin-top:15vh;
@@ -134,7 +155,6 @@ a {
 }
 
 .section {
-	/*margin-top: 3vh;*/
 	font-size:1.3em;
 	margin-bottom: 5vh;
 	width: 100vw;
@@ -170,7 +190,6 @@ a {
 .textbox {
 	width: 50vw;
 	float: left;
-	/*padding-right:2vw;*/
 }
 
 .textbox img {
@@ -181,8 +200,6 @@ a {
 .imgbox {
 	width: 30vw;
 	float: left;
-	/*position: relative;*/
-	/*margin-right:2vw;*/
 	margin-left:3vw;
 }
 
