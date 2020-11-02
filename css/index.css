@@ -122,7 +122,7 @@ html, body {
 	font-size: 1.3em;
 }
 
-#links.dark-links {
+.dark-links #links {
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -140,11 +140,11 @@ html, body {
 }
 
 
-#links.dark-links a {
+.dark-links #links a {
 	color: rgba(255,255,255,0.5);
 }
 
-#links.dark-links a:hover {
+.dark-links #links a:hover {
 	color: rgba(255,255,255,0.8);
 }
 

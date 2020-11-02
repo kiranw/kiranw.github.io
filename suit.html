@@ -8,15 +8,11 @@
 	<link rel='stylesheet' href='css/style.css'/>
 	<link rel='stylesheet' href='css/info-page.css'/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 </head>
 <body>
 
 <div id="about-header">
 	<a href="index.html"><img src="img/logo.png" /></a>
-	<a href="index.html">Home</a>
-	<a href="https://drive.google.com/file/d/0B8kCtaTafxrTWTA5THlHTHFDejA/view?usp=sharing">Résumé</a>
-	<a href="https://drive.google.com/file/d/0B8kCtaTafxrTOThsdDl4RnlFcVk/view?usp=sharing">Portfolio PDF</a>
 </div>
 
 <img class="splash" style="margin-top:15vh" src="img/suit-1.png" /> 
@@ -26,7 +22,6 @@ create a transcultural suit, something wearable that embodies two cultures (arch
 </div>
 
 <div class="section skills">
-	<div class="title">tags</div>
 	<span>sewing</span><span>presenting</span><span>critique</span><span>plans</span>
 </div>
 
@@ -48,16 +43,14 @@ create a transcultural suit, something wearable that embodies two cultures (arch
 
 
 
-<!-- <img class="splash" style="margin-top:15vh" src="img/suit-2.png" />  -->
-
-<div id='links'>
-	<a href='https://github.com/kiranw'><span class='fa fa-github'></span></a>
-	<a href='mailto:kiranw@mit.edu'><span class='fa fa-envelope'></span></a>
-	<a href='http://vimeo.com/wattamwar'><span class='fa fa-vimeo'></span></a>
-	<a href='http://kiranwatt.tumblr.com'><span class='fa fa-tumblr'></span></a>
-	<a href='http://linkedin.com/in/kiranw'><span class='fa fa-linkedin'></span></a>
-	<a href='http://www.youtube.com/channel/UC8NTzsXi4SO-7Slm7dG3gNw'><span class='fa fa-youtube-play'></span></a>
+<div id='footer'>
 </div>
+
+<script> 
+    $(function(){
+      $("#footer").load("https://raw.githubusercontent.com/kiranw/portfolio/master/footer.html"); 
+    });
+</script>
 
 </body>
 </html>

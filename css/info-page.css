@@ -1,63 +1,64 @@
 @font-face {
-  font-family: National-Book;
-  src: url("../fonts/National-Book.otf");
+  font-family: WorkSans-Book;
+  src: url("../fonts/WorkSans-Book.ttf");
 }
 
 @font-face {
-  font-family: National;
-  src: url("../fonts/National-Regular.otf");
+  font-family: WorkSans;
+  src: url("../fonts/WorkSans-Regular.ttf");
 }
 
 @font-face {
-  font-family: National-RegularItalic;
-  src: url("../fonts/National-RegularItalic.otf");
+  font-family: WorkSans-RegularItalic;
+  src: url("../fonts/WorkSans-RegularItalic.ttf");
 }
 
 @font-face {
-  font-family: National-Medium;
-  src: url("../fonts/National-Medium.otf");
+  font-family: WorkSans-Medium;
+  src: url("../fonts/WorkSans-Medium.ttf");
 }
 
 @font-face {
-  font-family: National-BookItalic;
-  src: url("../fonts/National-BookItalic.otf");
+  font-family: WorkSans-BookItalic;
+  src: url("../fonts/WorkSans-BookItalic.ttf");
 }
 
 @font-face {
-  font-family: National-Semibold;
-  src: url("../fonts/National-Semibold.otf");
+  font-family: WorkSans-Semibold;
+  src: url("../fonts/WorkSans-Semibold.ttf");
 }
 
 @font-face {
-  font-family: National-SemiboldItalic;
-  src: url("../fonts/National-SemiboldItalic.otf");
+  font-family: WorkSans-SemiboldItalic;
+  src: url("../fonts/WorkSans-SemiboldItalic.ttf");
 }
 
 @font-face {
-  font-family: National-Bold;
-  src: url("../fonts/National-Bold.otf");
+  font-family: WorkSans-Bold;
+  src: url("../fonts/WorkSans-Bold.ttf");
 }
 
 @font-face {
-  font-family: National-ExtraboldItalic;
-  src: url("../fonts/National-Extrabold.otf");
+  font-family: WorkSans-ExtraboldItalic;
+  src: url("../fonts/WorkSans-Extrabold.ttf");
 }
 
 @font-face {
-  font-family: National-ExtraboldItalic;
-  src: url("../fonts/National-Extrabold.otf");
+  font-family: WorkSans-ExtraboldItalic;
+  src: url("../fonts/WorkSans-Extrabold.ttf");
 }
 
 
 
 body {
 	margin-left:6vw;
-	font-family: 'National';
+	font-family: 'WorkSans';
+	font-size: 0.9em;
 }
 
 a {
 	color: black;
-	font-family: 'National';
+	font-family: 'WorkSans';
 	font-weight: 400;
 	cursor: pointer;
 }
@@ -69,11 +70,11 @@ a {
 }
 
 #about-header a {
-	min-width: 15vw;
 	text-align: right;
 	float: left;
 	vertical-align: middle;
 	text-transform: uppercase;
+	text-decoration: none;
 }
 
 #about-header a:hover {
@@ -81,8 +82,8 @@ a {
 }
 
 #about-header img {
-	margin-right: 36vw;
-	margin-top:-3vh;
+	margin-right: 3vw;
+	margin-top:-2vh;
 	height:6vh;
 	width: auto;
 	float: left;
@@ -95,23 +96,28 @@ a {
       transform: rotate(-10deg);
 }
 
-.bio-about-text {
-	font-size: 1.2em;
+#about-header>a::before {
+    content: "←";
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+#about-text.bio-about-text {
+	font-size: 1.5em;
 }
 
 .bio-about-text .text-highlight {
 	text-decoration: none; color: black;
-    font-family: "National-Semibold";
+    font-family: "WorkSans-Semibold";
 }
 
 
 #about-text {
 	margin-top:15vh;
-	font-size:2em;
-	/*margin-left: 6vw;*/
+	font-size:2.25em;
 	margin-right: 20vw;
 	line-height: 1.3;
-	/*position: fixed;*/
 }
 
 .text-highlight {
@@ -165,26 +171,28 @@ a {
 }
 
 .skills span{
+	margin: 1vh 0.5vw 1vh 0vw;
 	float:left;
 	font-size: 0.8em;
-	margin-right:0.5vw;
-	background-color: #e63153;
+	background-color: rgba(230,49,83,0.2);
 	padding:5px 10px;
 	border-radius:5px;
-	color: white;
-	margin-bottom:1vh;
+	border: 1px solid rgba(230, 49, 83, 0);
+	color: rgba(230,49,83,1);
 }
 
 
 .skills span:hover{
-	background-color: rgb(255, 82, 114);
+	background-color: rgba(230, 49, 83, 0.15);
+	border: 1px solid rgba(230, 49, 83, 1);
+	cursor: pointer;
 }
 
 .title {
 	font-size:1.3em;
 	font-weight:500;
 	margin-top:12vh;
-	font-family: "National-Bold";
+	font-family: "WorkSans-Bold";
 }
 
 .textbox {
