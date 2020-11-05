@@ -1,4 +1,25 @@
 @font-face {
+  font-family: AtlasGrotesk-Regular;
+  src: url("../fonts/AtlasGrotesk-Regular-Web.ttf");
+}
+
+@font-face {
+  font-family: AtlasGrotesk-Medium;
+  src: url("../fonts/AtlasGrotesk-Medium-Web.ttf");
+}
+
+@font-face {
+  font-family: AtlasGrotesk-Light;
+  src: url("../fonts/AtlasGrotesk-Light-Web.ttf");
+}
+
+@font-face {
+  font-family: AtlasGrotesk-Bold;
+  src: url("../fonts/AtlasGrotesk-Bold-Web.ttf");
+}
+
+
+@font-face {
   font-family: WorkSans-Book;
   src: url("../fonts/WorkSans-Book.ttf");
 }
@@ -20,7 +41,7 @@
 
 @font-face {
   font-family: WorkSans-BookItalic;
-  src: url("../fonts/WorkSans-BookItalic.ttf");
+  src: url("../fonts/WorkSans-Italic.ttf");
 }
 
 @font-face {
@@ -53,14 +74,28 @@
 body {
 	margin-left:6vw;
 	font-family: 'WorkSans';
-	font-size: 0.9em;
+    /*font-family: "AtlasGrotesk-Regular";*/
+	font-size: 0.8em;
 }
 
 a {
 	color: black;
 	font-family: 'WorkSans';
+    /*font-family: "AtlasGrotesk-Regular";*/
 	font-weight: 400;
 	cursor: pointer;
+	text-decoration: none;
+	background-image: linear-gradient(to top, #e9e9f0 45%, rgba(0,0,0,0) 40%);
+}
+
+p, li {
+	font-size: 0.9em;
+	line-height: 1.6em;
+}
+
+strong {
+	font-family: WorkSans-Semibold;
+    /*font-family: "AtlasGrotesk-Bold";*/
 }
 
 #about-header {
@@ -75,6 +110,7 @@ a {
 	vertical-align: middle;
 	text-transform: uppercase;
 	text-decoration: none;
+	background-image: none !important;
 }
 
 #about-header a:hover {
@@ -110,6 +146,7 @@ a {
 .bio-about-text .text-highlight {
 	text-decoration: none; color: black;
     font-family: "WorkSans-Semibold";
+    /*font-family: "AtlasGrotesk-Bold";*/
 }
 
 
@@ -168,6 +205,7 @@ a {
 
 .skills {
 	width: 80%;
+	margin-bottom: 20vh;
 }
 
 .skills span{
@@ -198,6 +236,7 @@ a {
 .textbox {
 	width: 50vw;
 	float: left;
+	margin-right: 3vw;
 }
 
 .textbox img {
@@ -206,14 +245,25 @@ a {
 }
 
 .imgbox {
-	width: 30vw;
+	width: 25vw;
 	float: left;
-	margin-left:3vw;
 }
 
 .imgbox img {
 	width:100%;
 	height: auto;
+}
+
+.imgrow {
+	width: 100%;
+	float: left;
+	margin: 5vh 0vw;
+}
+
+.imgrow img {
+	width: 28%;
+	margin-right: 5%;
+	float: left;
 }
 
 .clear {
@@ -224,6 +274,18 @@ a {
 .label {
 	color: grey;
 	font-size:0.8em;
+}
+
+.quote {
+    font-family: 'WorkSans-BookItalic';
+    border-left: 2px solid #d3d3d3;
+    padding-left: 2vw;
+    margin: 5vh 0vw;
+}
+
+.quote-credits {
+	color: grey;
+	font-size: 0.8em;
 }
 
 .splash {

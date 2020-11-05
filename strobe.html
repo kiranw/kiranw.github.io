@@ -100,15 +100,15 @@ strobe photography: keep the shutter open in a dark room and expose an image ins
 <img class="splash" style="margin-bottom:-10vh" src="img/strobe11.jpg" /> 
 
 
-<div id='footer' class="dark-links">
+<div id='footer'>
 </div>
 
 <script> 
-    $(function(){
-      $("#footer").load("https://raw.githubusercontent.com/kiranw/portfolio/master/footer.html"); 
-      $("#footer").show(); 
-      $("#footer").addClass("dark-links");
-    });
+	$(document).ready(function(){
+  		$("#footer").load("https://raw.githubusercontent.com/kiranw/portfolio/master/footer.html", function() {
+    		jQuery('#links').addClass('dark-links');
+  		});
+	});
 </script>
 
 </body>

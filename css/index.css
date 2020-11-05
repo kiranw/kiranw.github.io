@@ -137,11 +137,12 @@ html, body {
 	text-decoration: none;
 	display: inline-block;
 	margin: 14px;
+	background-image: none !important;
 }
 
-
-.dark-links #links a {
-	color: rgba(255,255,255,0.5);
+#links.dark-links a {
+    color: rgba(255,255,255,0.5);
+    background-image: none !important;
 }
 
 .dark-links #links a:hover {
@@ -194,6 +195,10 @@ html, body {
 	position: fixed;
 	z-index: 98;
 	right: 0;
+}
+
+#links > a {
+	background-image: none !important;
 }
 
 #links a:hover {
