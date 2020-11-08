@@ -31,7 +31,7 @@
 
 @font-face {
   font-family: WorkSans-RegularItalic;
-  src: url("../fonts/WorkSans-RegularItalic.ttf");
+  src: url("../fonts/WorkSans-Italic.ttf");
 }
 
 @font-face {
@@ -76,6 +76,7 @@ body {
 	font-family: 'WorkSans';
     /*font-family: "AtlasGrotesk-Regular";*/
 	font-size: 0.8em;
+	overflow-x: hidden;
 }
 
 a {
@@ -86,6 +87,16 @@ a {
 	cursor: pointer;
 	text-decoration: none;
 	background-image: linear-gradient(to top, #e9e9f0 45%, rgba(0,0,0,0) 40%);
+	-webkit-transition: background-image 500ms ease-out 1s;
+}
+
+.dark-mode a {
+	background-image: linear-gradient(to top, rgba(230,49,83,0.6) 45%, rgba(0,0,0,0) 40%);
+	color: white;	
+}
+
+#footer > #links > a {
+	background-image: none;
 }
 
 p, li {
@@ -141,6 +152,10 @@ strong {
 
 #about-text.bio-about-text {
 	font-size: 1.5em;
+}
+
+.header-dark > a {
+	color: white;
 }
 
 .bio-about-text .text-highlight {
@@ -205,15 +220,16 @@ strong {
 
 .skills {
 	width: 80%;
-	margin-bottom: 20vh;
+	margin-bottom: 15vh;
+	margin-top: 3vh;
 }
 
 .skills span{
-	margin: 1vh 0.5vw 1vh 0vw;
+	margin: 0vh 0.5vw 1vh 0vw;
 	float:left;
 	font-size: 0.8em;
 	background-color: rgba(230,49,83,0.2);
-	padding:5px 10px;
+	padding:4px 8px;
 	border-radius:5px;
 	border: 1px solid rgba(230, 49, 83, 0);
 	color: rgba(230,49,83,1);
@@ -225,6 +241,30 @@ strong {
 	border: 1px solid rgba(230, 49, 83, 1);
 	cursor: pointer;
 }
+
+.dark-mode .skills span {
+	background-color: rgba(230,49,83,0.25);
+}
+
+.dark-mode .skills span:hover {
+	background-color: rgba(230,49,83,0.35);
+}
+
+.feature {
+	margin-top: 6vh;
+	font-size: 0.8em;
+	color: rgba(0,0,0,0.5);
+	font-family: "WorkSans-RegularItalic";
+	display: inline-block;
+}
+.feature-link {
+	margin-top: 1.5vh;
+	display: inline-block;
+}
+.dark-mode .feature {
+	color: rgba(255,255,255,0.7);
+}
+
 
 .title {
 	font-size:1.3em;
@@ -314,4 +354,15 @@ strong {
 #divide-pic {
 	width:60%;
 	margin-left: 20%;
+}
+
+.drop-shadow {
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+	border-radius: 6px;
+	transition: box-shadow 0.15s ease-in-out;
+	-webkit-transition: box-shadow 0.15s ease-in-out;
+}
+
+.textbox > img {
+	margin: 3vh 0;
 }
