@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Kiran Wattamwar - Portfolio | Ukulele</title>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>
+	<link rel='stylesheet' href='css/style.css'/>
+	<link rel='stylesheet' href='css/info-page.css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="about-header">
+	<a href="index.html"><img src="img/logo.png" /></a>
+</div>
+
+<img class="splash" style="margin-top:-2vh" src="img/uke1.jpg" /> 
+
+<div id="about-text">
+a high-tech ukulele designed to teach beginners, designed from scratch for less than $7
+</div>
+
+<div class="section skills">
+	<span>CAD/CAM</span><span>laser cutting</span><span>vinyl cutting</span><span>electronics design</span><span>pcb milling</span><span>firmware</span><span>embedded programming</span><span>software programming</span><span>web programming</span><span>soldering</span><span>thermoforming</span><span>3D printing</span>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="section">
+	<div class="title">about the product</div>
+	<div class="textbox">
+	<p>My belief is that good product design requires three core values – elegance, innovation and empathy. I’ve prioritized synthesizing these values in all of my projects in a studio I took in the fall called How to Make (Almost) Anything at the MIT Media Lab. I designed an electronic touch-sensing ukulele entirely from scratch, from its electronic components and physical form to its firmware and software. It’s elegant – with a design featuring smooth curves and transparent acrylic, its body is a window into its electric core. It’s innovative – the circuit encoding its multitouch, multiplexed and capacitive sensors fits on a surface smaller than that of a credit card. But most importantly, it’s empathetic. With the goal of creating an instrument for young beginners, the ukulele is engraved with labels for notes, thicker frets for a novice’s unsure fingers, and a thin body for easier holding. And all three of these design values come back together in the form of a connected app relaying live data on strummed notes and their related chords, and generating sheet music in real time. With the app, unstructured exploration on the ukulele can now inspire organic musical composition. Altogether, the ukulele and app cost under $7 to produce.
+	</p>
+
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+<div class="section">
+	<div class="title"></div>
+	<div class="textbox">
+	<p>Here's a sketch of the vectors I created the body of the uke with - it's laser cut from acrylic which is transparent, and easy to laser cut and engrave. I liked that the uke wouldn't hide its electronic components - instead, you can see directly into the device. When I was little, I was always compelled to break my toys becuase I wanted to see into them and this is inspired by my childhood curiosity. The acrylic also is a beautiful surface to work with - it's cheap, light weight and engraves beautifully. I engraved the notes on the the neck of the uke so that the player can see exactly what they are pressing, and learn quickly. The design of the body is perfectly to scale with real ukuleles (I meticulously measured my own uke to choose the dimensions of this one). The body is slim, so beginners can adjust easily to the feel of the uke in their hands, and not feel uncomfortable with it. The vinyl cut traces that cover the frets are wider than traditional frets so the user can easily find the right places to press down without needing perfect precision and are positioned exactly where traditional uke frets are. I made this device so that a beginner could use it to train, and eventually transition seamlessly into playing a traditional ukulele. </p>
+	</div>
+	<div class="imgbox">
+		<img src="img/uke0.png">
+		<p class="label">Every layer of the device is overlaid onto this image - you can see the base, the raster images for engraving and the copper strips for the fret touchpads. I designed this in Adobe Illustrator.</p>
+		<br>
+		<img src="img/uke9.jpg">
+	</div>
+	<div class="clear"></div>
+</div>
+
+<img class="splash" style="margin-top:15vh" src="img/uke8.png" />
+
+<div class="section">
+	<div class="title">electronics and the works</div>
+	<div class="textbox">
+	<p>Creating the device itself also took a lot of work - I created a 16 pad capacitive touch sensor with a microcontroller (attiny44) that communicates serially through a USB port of a computer that it is connected to. This touch sensor is particularly interesting because it uses multiplexing to create 16 pads out of only 8 pins on the microcontroller. Since it is multitouch, each combination of a string and a fret touched at the same time produces a unique reading and thus, a unique note.</p>
+
+	<p> These images peek into the process of electronics production and assembly - I designed a board, milled the PCB and attached its components and then flashed the firmware onto the board. With this, I was able to start writing software to play audio for keypresses and an app with more advanced features.</p>
+	</div>
+	<div class="imgbox">
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="section">
+	<div class="title">software</div>
+	<div class="textbox">
+	<p>I was inspired by Spotify for my interface - I wanted the experience of my app to be met with familiarity and comfort instead of introducing something entirely foreign. I also wanted to build in specific functionality to my project - the ability to see information about the note being played (related chords), and record a session, and also translate the session into sheet music. My design model was a web socket server in Python that could read from serial, process the data, and send a message to a web socket that my website was connected to. I understand that this is not compatible with Internet Explore - maybe for a longer term project, that could be navigated better. But for now, this was a good way to mock up designs (I'm more comfortable in HTML for GUIs over Python). I also tried initially to build the entire software element in python alone - I had many problems getting SDL, PyAudio, PyGame and other common libraries used for playing audio in the process so I figured that solving these problems would not be as productive as spending more time on development towards the project (so shifting to JavaScript for support for that was an easier choice).</p>
+	<br><br>
+	<br><br>
+	<div class="textbox">check out a <a href="https://www.youtube.com/watch?v=MuXqFVEJf4Q">video</a> of it in action</div>
+	</div>
+	<div class="imgbox">
+		<img src="img/uke10.png">
+		<p class="label">You can see currently playing notes, and related chords in real time and get feedback on your playing.</p>
+	</div>
+	<br><br>
+	<div class="clear"></div>
+</div>
+
+<div>
+	<img class="imgblockhalf" style="margin-left:-6vw;" src="img/uke2.jpg" /> 
+	<img class="imgblockhalf" src="img/uke7.jpg" /> 
+	<img class="imgblockhalf" style="margin-left:-6vw;" src="img/uke6.jpg" /> 
+	<img class="imgblockhalf" src="img/uke3.jpg" /> 
+	<div class="clear"></div>
+</div>
+
+
+<img class="splash" style="margin-top:5vh" src="img/uke4.jpg" /> 
+<div class="clear"><br><br><br><br></div>
+<img class="splash" style="margin-top:-5vh" src="img/piano.png" /> 
+
+<div id='footer'>
+</div>
+
+<script> 
+    $(function(){
+      $("#footer").load("https://raw.githubusercontent.com/kiranw/portfolio/master/footer.html"); 
+    });
+</script>
+
+</body>
+</html>
