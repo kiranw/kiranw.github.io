@@ -1,58 +1,79 @@
 @font-face {
-  font-family: National-Book;
-  src: url("../fonts/National-Book.otf");
+  font-family: AtlasGrotesk-Regular;
+  src: url("../fonts/AtlasGrotesk-Regular-Web.ttf");
 }
 
 @font-face {
-  font-family: National;
-  src: url("../fonts/National-Regular.otf");
+  font-family: AtlasGrotesk-Medium;
+  src: url("../fonts/AtlasGrotesk-Medium-Web.ttf");
 }
 
 @font-face {
-  font-family: National-RegularItalic;
-  src: url("../fonts/National-RegularItalic.otf");
+  font-family: AtlasGrotesk-Light;
+  src: url("../fonts/AtlasGrotesk-Light-Web.ttf");
 }
 
 @font-face {
-  font-family: National-Medium;
-  src: url("../fonts/National-Medium.otf");
+  font-family: AtlasGrotesk-Bold;
+  src: url("../fonts/AtlasGrotesk-Bold-Web.ttf");
+}
+
+
+@font-face {
+  font-family: WorkSans-Book;
+  src: url("../fonts/WorkSans-Book.ttf");
 }
 
 @font-face {
-  font-family: National-BookItalic;
-  src: url("../fonts/National-BookItalic.otf");
+  font-family: WorkSans;
+  src: url("../fonts/WorkSans-Regular.ttf");
 }
 
 @font-face {
-  font-family: National-Semibold;
-  src: url("../fonts/National-Semibold.otf");
+  font-family: WorkSans-RegularItalic;
+  src: url("../fonts/WorkSans-Italic.ttf");
 }
 
 @font-face {
-  font-family: National-SemiboldItalic;
-  src: url("../fonts/National-SemiboldItalic.otf");
+  font-family: WorkSans-Medium;
+  src: url("../fonts/WorkSans-Medium.ttf");
 }
 
 @font-face {
-  font-family: National-Bold;
-  src: url("../fonts/National-Bold.otf");
+  font-family: WorkSans-BookItalic;
+  src: url("../fonts/WorkSans-Italic.ttf");
 }
 
 @font-face {
-  font-family: National-ExtraboldItalic;
-  src: url("../fonts/National-Extrabold.otf");
+  font-family: WorkSans-Semibold;
+  src: url("../fonts/WorkSans-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: National-ExtraboldItalic;
-  src: url("../fonts/National-Extrabold.otf");
+  font-family: WorkSans-SemiboldItalic;
+  src: url("../fonts/WorkSans-SemiBoldItalic.ttf");
+}
+
+@font-face {
+  font-family: WorkSans-Bold;
+  src: url("../fonts/WorkSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: WorkSans-ExtraboldItalic;
+  src: url("../fonts/WorkSans-Extrabold.ttf");
+}
+
+@font-face {
+  font-family: WorkSans-ExtraboldItalic;
+  src: url("../fonts/WorkSans-Extrabold.ttf");
 }
 
 
 html, body {
 	margin: 0;
 	height: 100%;
-	font-family: 'National', sans-serif;
+	font-family: 'WorkSans', sans-serif;
 }
 
 #header {

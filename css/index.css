@@ -1,58 +1,79 @@
 @font-face {
-  font-family: National-Book;
-  src: url("../fonts/National-Book.otf");
+  font-family: AtlasGrotesk-Regular;
+  src: url("../fonts/AtlasGrotesk-Regular-Web.ttf");
 }
 
 @font-face {
-  font-family: National;
-  src: url("../fonts/National-Regular.otf");
+  font-family: AtlasGrotesk-Medium;
+  src: url("../fonts/AtlasGrotesk-Medium-Web.ttf");
 }
 
 @font-face {
-  font-family: National-RegularItalic;
-  src: url("../fonts/National-RegularItalic.otf");
+  font-family: AtlasGrotesk-Light;
+  src: url("../fonts/AtlasGrotesk-Light-Web.ttf");
 }
 
 @font-face {
-  font-family: National-Medium;
-  src: url("../fonts/National-Medium.otf");
+  font-family: AtlasGrotesk-Bold;
+  src: url("../fonts/AtlasGrotesk-Bold-Web.ttf");
+}
+
+
+@font-face {
+  font-family: WorkSans-Book;
+  src: url("../fonts/WorkSans-Book.ttf");
 }
 
 @font-face {
-  font-family: National-BookItalic;
-  src: url("../fonts/National-BookItalic.otf");
+  font-family: WorkSans;
+  src: url("../fonts/WorkSans-Regular.ttf");
 }
 
 @font-face {
-  font-family: National-Semibold;
-  src: url("../fonts/National-Semibold.otf");
+  font-family: WorkSans-RegularItalic;
+  src: url("../fonts/WorkSans-Italic.ttf");
 }
 
 @font-face {
-  font-family: National-SemiboldItalic;
-  src: url("../fonts/National-SemiboldItalic.otf");
+  font-family: WorkSans-Medium;
+  src: url("../fonts/WorkSans-Medium.ttf");
 }
 
 @font-face {
-  font-family: National-Bold;
-  src: url("../fonts/National-Bold.otf");
+  font-family: WorkSans-BookItalic;
+  src: url("../fonts/WorkSans-Italic.ttf");
 }
 
 @font-face {
-  font-family: National-ExtraboldItalic;
-  src: url("../fonts/National-Extrabold.otf");
+  font-family: WorkSans-Semibold;
+  src: url("../fonts/WorkSans-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: National-ExtraboldItalic;
-  src: url("../fonts/National-Extrabold.otf");
+  font-family: WorkSans-SemiboldItalic;
+  src: url("../fonts/WorkSans-SemiBoldItalic.ttf");
+}
+
+@font-face {
+  font-family: WorkSans-Bold;
+  src: url("../fonts/WorkSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: WorkSans-ExtraboldItalic;
+  src: url("../fonts/WorkSans-Extrabold.ttf");
+}
+
+@font-face {
+  font-family: WorkSans-ExtraboldItalic;
+  src: url("../fonts/WorkSans-Extrabold.ttf");
 }
 
 
 html, body {
 	margin: 0;
 	height: 100%;
-	font-family: 'National', sans-serif;
+	font-family: 'WorkSans', sans-serif;
 	overflow: scroll;
 }
 
@@ -100,16 +121,22 @@ html, body {
 }
 
 #cards > div img {
-	height: 90vh;
-	max-height: 500px;
+	height: 85vh;
+	max-height: 400px;
 	box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
 	border-radius: 6px;
 	transition: box-shadow 0.15s ease-in-out;
 	-webkit-transition: box-shadow 0.15s ease-in-out;
+	transition: height 0.15s ease-in-out;
+	-webkit-transition: height 0.15s ease-in-out;
+	transition: max-height 0.15s ease-in-out;
+	-webkit-transition: max-height 0.15s ease-in-out;
 }
 
 #cards > div img:hover {
 	box-shadow: 0px 4px 20px rgba(0,0,0,0.7);
+	height: 91vh;
+	max-height: 425px;
 }
 
 #links {
@@ -165,20 +192,6 @@ html, body {
   50% { opacity: 0; }
 }
 
-.rainbow:hover {
-  -webkit-animation:rainbow 2s infinite;
-}
-
-@-webkit-keyframes rainbow {
-  0%   { -webkit-filter: hue-rotate(0deg); }
-  14%  { -webkit-filter: hue-rotate(40deg) brightness(150%); }
-  28%  { -webkit-filter: hue-rotate(65deg) brightness(250%); }
-  42%  { -webkit-filter: hue-rotate(85deg) brightness(250%); }
-  56%  { -webkit-filter: sepia(1) hue-rotate(120deg) saturate(180%) brightness(150%); }
-  70%  { -webkit-filter: sepia(1) hue-rotate(185deg) saturate(400%) brightness(150%); }
-  84%  { -webkit-filter: sepia(1) hue-rotate(215deg) saturate(400%) brightness(140%); }
-  100% { -webkit-filter: sepia(1) hue-rotate(265deg) saturate(400%) brightness(120%); }
-}
   
 
 
@@ -187,6 +200,8 @@ html, body {
 	height: 100vh;
 	position: fixed;
 	z-index: 98;
+	transition: background 0.15s ease-in-out;
+	-webkit-transition: background 0.15s ease-in-out;
 }
 
 
@@ -196,7 +211,20 @@ html, body {
 	position: fixed;
 	z-index: 98;
 	right: 0;
+	transition: background 0.15s ease-in-out;
+	-webkit-transition: background 0.15s ease-in-out;
 }
+
+#scroll-right-detector:hover {
+	background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(221,230,241,0.738532913165266) 100%);
+}
+
+#scroll-left-detector:hover {
+	background: rgb(221,230,241);
+	background: linear-gradient(90deg, rgba(221,230,241,0.738532913165266) 0%, rgba(255,255,255,0) 100%);
+}
+
 
 #links > a {
 	background-image: none !important;
@@ -221,4 +249,29 @@ html, body {
 
 .bottom {
 	margin-bottom: 100px !important;
+}
+
+#nav {
+	margin-top: 5vh;
+	position: absolute;
+	z-index: 99;
+}
+#nav > a {
+	right: 3vw;
+	text-decoration: none;
+	z-index: 100;
+	color: black;
+	font-size: 0.8em;
+	position: fixed;
+	background-color: rgba(255,255,255,1);
+	padding: 10px;
+}
+#nav > #scroll-helper {
+	left: 3vw;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;	
+	position: fixed;
+	background-color: rgba(255,255,255,1);
+	padding: 10px;
 }

@@ -46,12 +46,12 @@
 
 @font-face {
   font-family: WorkSans-Semibold;
-  src: url("../fonts/WorkSans-Semibold.ttf");
+  src: url("../fonts/WorkSans-SemiBold.ttf");
 }
 
 @font-face {
   font-family: WorkSans-SemiboldItalic;
-  src: url("../fonts/WorkSans-SemiboldItalic.ttf");
+  src: url("../fonts/WorkSans-SemiBoldItalic.ttf");
 }
 
 @font-face {
@@ -72,7 +72,7 @@
 
 
 body {
-	margin-left:6vw;
+	margin-left:25vw;
 	font-family: 'WorkSans';
     /*font-family: "AtlasGrotesk-Regular";*/
 	font-size: 0.8em;
@@ -113,6 +113,7 @@ strong {
 	top: 7vh;
 	position: absolute;
 	font-size: 1em;
+	margin-left:-20vw;
 }
 
 #about-header a {
@@ -266,6 +267,38 @@ strong {
 }
 
 
+
+.misc-section {
+	font-size: 1.3em;
+	margin-bottom: 12vh;
+	width: 100vw;
+	margin-top: 6em;
+}
+.misc-title{
+	margin-top: 10em;
+}
+.misc-description {
+	margin-top: 1em;
+	width: 30%;
+	font-size: 0.8em;
+	opacity: 0.5;
+}
+.misc-section > .images {
+	display: block;
+}
+
+.misc-section > .images > img, .misc-section > .images > iframe {
+	width: 28% auto;
+	max-height: 150px;
+	margin-right: 20px;
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+	border-radius: 2px;
+	transition: box-shadow 0.15s ease-in-out;
+	-webkit-transition: box-shadow 0.15s ease-in-out;
+}
+
+
+
 .title {
 	font-size:1.3em;
 	font-weight:500;
@@ -286,7 +319,8 @@ strong {
 
 .imgbox {
 	width: 25vw;
-	float: left;
+	margin-top: 30px;
+	/*float: left;*/
 }
 
 .imgbox img {
@@ -329,11 +363,11 @@ strong {
 }
 
 .splash {
-	width:107%;
+	width:135%;
 	height:auto;
 	margin-top:2vh;
 	margin-bottom:2vh;
-	margin-left:-6vw;
+	margin-left:-25vw;
 }
 
 .strobe {
