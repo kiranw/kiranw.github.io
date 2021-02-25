@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Kiran Wattamwar - Portfolio | Cube</title>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>
+	<link rel='stylesheet' href='css/style.css'/>
+	<link rel='stylesheet' href='css/info-page.css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="about-header" class="header-dark">
+	<a href="index.html"><img src="img/logo.png" /></a>
+</div>
+
+<img class="splash" style="margin-top:-5vh" src="img/andante.jpg" /> 
+
+<div id="about-text">
+an animation system that teaches by example, emotes and assists
+</div>
+
+<div class="section skills">
+	<span>animation</span><span>CAD</span><span>Processing</span><span>Java</span><span>Photoshop</span>
+</div>
+
+<div class="section">
+	<div class="title">andante</div>
+	<div class="textbox">
+		<br><br>
+		<iframe src="https://player.vimeo.com/video/92242590" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<br>
+		<br>
+		<p>I worked on this project under Xiao Xiao as a research project (UROP) at the MIT Media Lab in 2014.</p>
+		<p>From the paper: "Andante visualizes as animated characters walking along the piano keyboard that appear to play the physical keys with each step. Based on a view of music pedagogy that emphasizes expressive, full-body communication early in the learning process, Andante promotes an understanding of the music rooted in the body, taking advantage of walking as one of the most fundamental human rhythms."</p>
+		<p>In this project, I worked on developing the animated figures and some code in the Processing sketch that powered it. The most interesting logic in this is creating code that can figure out what sequence of frames must be used when - depending on the jump between notes, a figure may need to physically jump, run or walk, or hop again onto the same note it's already on. It may need to turn between notes and travel, or keep moving in one direction and the distance between notes motivates the density of frames that can be used if a constant frame rate is assumed. A large library of frames was needed to create a library that could cover all cases for each figure. The physical scale of the piano was also an important consideration, as its fallboard and keys create constraints on scale that also need to work with the projector's resolution.</p>
+		<br>
+		<br>
+		<br>
+		<iframe src="https://player.vimeo.com/video/91433911" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<br>
+		<br>
+		<br>
+		<iframe src="https://player.vimeo.com/video/91432323" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	<!-- <div class="imgbox">
+		<img src="img/andante.gif">
+		<p class="label">This was one character I designed to express the playfulness in music - I accidentally modeled the ostrich's legs after a humans instead of in the anatomically correct way which is fixed in the videos linked.</p>
+	</div> -->
+	<div class="clear"></div>
+</div>
+
+
+<div id='footer'>
+</div>
+
+<script> 
+    $(function(){
+      $("#footer").load("https://raw.githubusercontent.com/kiranw/portfolio/master/footer.html"); 
+    });
+</script>
+
+</body>
+</html>
