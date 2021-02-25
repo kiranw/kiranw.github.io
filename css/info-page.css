@@ -111,7 +111,7 @@ strong {
 
 #about-header {
 	top: 7vh;
-	position: absolute;
+	position: fixed;
 	font-size: 1em;
 	margin-left:-20vw;
 }
