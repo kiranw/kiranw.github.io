@@ -1,4 +1,107 @@
 @font-face {
+	font-family: UbuntuMono-Bold;
+	src: url("../fonts/UbuntuMono-Bold.ttf");
+}
+
+@font-face {
+	font-family: UbuntuMono-Italic;
+	src: url("../fonts/UbuntuMono-Italic.ttf");
+}
+
+@font-face {
+	font-family: UbuntuMono-BoldItalic;
+	src: url("../fonts/UbuntuMono-BoldItalic.ttf");
+}
+
+@font-face {
+	font-family: UbuntuMono-Regular;
+	src: url("../fonts/UbuntuMono-Regular.ttf");
+}
+
+
+
+@font-face {
+	font-family: SilkSerif-Black;
+	src: url("../fonts/SilkSerif-Black.ttf");
+}
+@font-face {
+	font-family: SilkSerif-BlackItalic;
+	src: url("../fonts/SilkSerif-BlackItalic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-Bold;
+	src: url("../fonts/SilkSerif-Bold.ttf");
+}
+@font-face {
+	font-family: SilkSerif-BoldItalic;
+	src: url("../fonts/SilkSerif-BoldItalic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-ExtraLight;
+	src: url("../fonts/SilkSerif-ExtraLight.ttf");
+}
+@font-face {
+	font-family: SilkSerif-ExtraLightItalic;
+	src: url("../fonts/SilkSerif-ExtraLightItalic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-Light;
+	src: url("../fonts/SilkSerif-Light.ttf");
+}
+@font-face {
+	font-family: SilkSerif-LightItalic;
+	src: url("../fonts/SilkSerif-LightItalic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-Medium;
+	src: url("../fonts/SilkSerif-Medium.ttf");
+}
+@font-face {
+	font-family: SilkSerif-MediumItalic;
+	src: url("../fonts/SilkSerif-MediumItalic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-Italic;
+	src: url("../fonts/SilkSerif-Italic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-Regular;
+	src: url("../fonts/SilkSerif-Regular.ttf");
+}
+@font-face {
+	font-family: SilkSerif-RegularItalic;
+	src: url("../fonts/SilkSerif-RegularItalic.ttf");
+}
+@font-face {
+	font-family: SilkSerif-SemiBold;
+	src: url("../fonts/SilkSerif-SemiBold.ttf");
+}
+@font-face {
+	font-family: SilkSerif-SemiBoldItalic;
+	src: url("../fonts/SilkSerif-SemiBoldItalic.ttf");
+}
+
+
+
+@font-face {
+  font-family: EBGaramond;
+  src: url("../fonts/EBGaramond-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: EBGaramond-Italic;
+  src: url("../fonts/EBGaramond-Italic-VariableFont_wght.ttf");
+}
+
+
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/Inter-VariableFont.ttf");
+}
+
+
+
+@font-face {
   font-family: AtlasGrotesk-Regular;
   src: url("../fonts/AtlasGrotesk-Regular-Web.ttf");
 }
@@ -17,6 +120,9 @@
   font-family: AtlasGrotesk-Bold;
   src: url("../fonts/AtlasGrotesk-Bold-Web.ttf");
 }
+
+
+
 
 
 @font-face {

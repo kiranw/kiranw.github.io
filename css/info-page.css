@@ -1,97 +1,32 @@
-@font-face {
-  font-family: AtlasGrotesk-Regular;
-  src: url("../fonts/AtlasGrotesk-Regular-Web.ttf");
-}
-
-@font-face {
-  font-family: AtlasGrotesk-Medium;
-  src: url("../fonts/AtlasGrotesk-Medium-Web.ttf");
-}
-
-@font-face {
-  font-family: AtlasGrotesk-Light;
-  src: url("../fonts/AtlasGrotesk-Light-Web.ttf");
-}
-
-@font-face {
-  font-family: AtlasGrotesk-Bold;
-  src: url("../fonts/AtlasGrotesk-Bold-Web.ttf");
-}
-
-
-@font-face {
-  font-family: WorkSans-Book;
-  src: url("../fonts/WorkSans-Book.ttf");
-}
-
-@font-face {
-  font-family: WorkSans;
-  src: url("../fonts/WorkSans-Regular.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-RegularItalic;
-  src: url("../fonts/WorkSans-Italic.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-Medium;
-  src: url("../fonts/WorkSans-Medium.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-BookItalic;
-  src: url("../fonts/WorkSans-Italic.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-Semibold;
-  src: url("../fonts/WorkSans-SemiBold.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-SemiboldItalic;
-  src: url("../fonts/WorkSans-SemiBoldItalic.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-Bold;
-  src: url("../fonts/WorkSans-Bold.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-ExtraboldItalic;
-  src: url("../fonts/WorkSans-Extrabold.ttf");
-}
-
-@font-face {
-  font-family: WorkSans-ExtraboldItalic;
-  src: url("../fonts/WorkSans-Extrabold.ttf");
-}
-
-
-
 body {
 	margin-left:25vw;
-	font-family: 'WorkSans';
-    /*font-family: "AtlasGrotesk-Regular";*/
-	font-size: 0.8em;
+	/*font-family: 'WorkSans';*/
+	font-family: 'EBGaramond';
+	font-size: 1em;
 	overflow-x: hidden;
 }
 
 a {
 	color: black;
-	font-family: 'WorkSans';
-    /*font-family: "AtlasGrotesk-Regular";*/
+	/*font-family: 'WorkSans';*/
 	font-weight: 400;
 	cursor: pointer;
 	text-decoration: none;
-	background-image: linear-gradient(to top, #e9e9f0 45%, rgba(0,0,0,0) 40%);
+	/*background-image: linear-gradient(to top, #e9e9f0 45%, rgba(0,0,0,0) 40%);*/
+	background-image: linear-gradient(to top, rgba(255,210,184,0.6) 45%, rgba(0,0,0,0) 40%);
 	-webkit-transition: background-image 500ms ease-out 1s;
 }
 
+a:hover, .dark-mode a:hover {
+	/*background-image: linear-gradient(to top, rgba(255,210,184,1) 45%, rgba(255,210,184,0.5) 100%);*/
+	background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60%, rgba(255,186,71,1) 100%);
+	color: black;
+}
+
+
 .dark-mode a {
-	background-image: linear-gradient(to top, rgba(230,49,83,0.6) 45%, rgba(0,0,0,0) 40%);
+	/*background-image: linear-gradient(to top, rgba(230,49,83,0.6) 45%, rgba(0,0,0,0) 40%);*/
+	background-image: linear-gradient(to top, rgba(211, 93, 63, 0.9) 45%, rgba(0,0,0,0) 40%);
 	color: white;	
 }
 
@@ -105,8 +40,8 @@ p, li {
 }
 
 strong {
-	font-family: WorkSans-Semibold;
-    /*font-family: "AtlasGrotesk-Bold";*/
+	/*font-family: WorkSans-Semibold;*/
+	font-weight: 600;
 }
 
 #about-header {
@@ -162,15 +97,19 @@ strong {
 .bio-about-text .text-highlight {
 	text-decoration: none; color: black;
     font-family: "WorkSans-Semibold";
-    /*font-family: "AtlasGrotesk-Bold";*/
 }
 
 
 #about-text {
+	font-family: "SilkSerif-Regular";
 	margin-top:15vh;
 	font-size:2.25em;
 	margin-right: 20vw;
 	line-height: 1.3;
+}
+#about-text > strong {
+	font-family: "SilkSerif-Bold";
+	font-size: 1.3em;
 }
 
 .text-highlight {
@@ -222,40 +161,49 @@ strong {
 .skills {
 	width: 80%;
 	margin-bottom: 15vh;
-	margin-top: 3vh;
+	margin-top: 6vh;
+	font-family: "UbuntuMono-Regular";
 }
 
 .skills span{
 	margin: 0vh 0.5vw 1vh 0vw;
 	float:left;
-	font-size: 0.8em;
-	background-color: rgba(230,49,83,0.2);
+	font-size: 0.7em;
 	padding:4px 8px;
-	border-radius:5px;
+	border-radius:3px;
+	/*background-color: rgba(230,49,83,0.2);*/
 	border: 1px solid rgba(230, 49, 83, 0);
-	color: rgba(230,49,83,1);
+	/*color: rgba(230,49,83,1);*/
+	color: black;
+	background-color: yellow;
 }
 
 
 .skills span:hover{
-	background-color: rgba(230, 49, 83, 0.15);
-	border: 1px solid rgba(230, 49, 83, 1);
+	background: rgb(255,255,99);
+background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60%, rgba(255,186,71,1) 100%);
+	/*background-color: rgba(230, 49, 83, 0.15);*/
+	border: 1px solid rgba(255,255,99,1);
 	cursor: pointer;
 }
 
 .dark-mode .skills span {
-	background-color: rgba(230,49,83,0.25);
+	/*background-color: rgba(230,49,83,0.25);*/
+	background-color: rgba(211, 93, 63, 0.9);
 }
 
 .dark-mode .skills span:hover {
-	background-color: rgba(230,49,83,0.35);
+	/*background-color: rgba(230,49,83,0.35);*/
 }
 
 .feature {
 	margin-top: 6vh;
 	font-size: 0.8em;
 	color: rgba(0,0,0,0.5);
-	font-family: "WorkSans-RegularItalic";
+	font-family: "EBGaramond";
+	/*font-family: "UbuntuMono-Regular";*/
+	/*font-family: "Inter";*/
+	/*font-family: "SilkSerif-Regular";*/
 	display: inline-block;
 }
 .feature-link {
@@ -300,10 +248,15 @@ strong {
 
 
 .title {
-	font-size:1.3em;
+	font-size:1em;
 	font-weight:500;
 	margin-top:12vh;
-	font-family: "WorkSans-Bold";
+	/*font-family: "WorkSans-Medium";*/
+	/*font-family: "Inter";*/
+	/*font-family: "EBGaramond";*/
+	font-family: "UbuntuMono-Bold";
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 
 .textbox {
@@ -329,15 +282,20 @@ strong {
 }
 
 .imgrow {
+	display: table;
 	width: 100%;
-	float: left;
-	margin: 5vh 0vw;
+	/*float: left;*/
+	/*margin: 5vh 0vw;*/
 }
-
+.imgrow > .imgwrapper {
+	display: table-cell;
+}
 .imgrow img {
-	width: 28%;
-	margin-right: 5%;
-	float: left;
+	display: block;
+	width: 95%;
+	height: auto;
+	/*margin-right: 5%;*/
+	/*float: left;*/
 }
 
 .clear {
@@ -347,11 +305,13 @@ strong {
 
 .label {
 	color: grey;
-	font-size:0.8em;
+	font-size:0.7em;
+	font-family: 'UbuntuMono-Regular';
+	letter-spacing: -0.25px;
 }
 
 .quote {
-    font-family: 'WorkSans-BookItalic';
+    font-family: 'EBGaramond';
     border-left: 2px solid #d3d3d3;
     padding-left: 2vw;
     margin: 5vh 0vw;
@@ -360,6 +320,7 @@ strong {
 .quote-credits {
 	color: grey;
 	font-size: 0.8em;
+	font-family: 'EBGaramond-Italic';
 }
 
 .splash {
@@ -372,7 +333,7 @@ strong {
 
 .strobe {
 	background-color: black;
-	color: white !important;
+	color: rgba(255,255,255,0.8) !important;
 }
 
 .white {
