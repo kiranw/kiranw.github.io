@@ -1,6 +1,5 @@
 body {
 	margin-left:25vw;
-	/*font-family: 'WorkSans';*/
 	font-family: 'EBGaramond';
 	font-size: 1em;
 	overflow-x: hidden;
@@ -8,25 +7,21 @@ body {
 
 a {
 	color: black;
-	/*font-family: 'WorkSans';*/
 	font-weight: 400;
 	cursor: pointer;
 	text-decoration: none;
-	/*background-image: linear-gradient(to top, #e9e9f0 45%, rgba(0,0,0,0) 40%);*/
 	background-image: linear-gradient(to top, rgba(255,210,184,0.6) 45%, rgba(0,0,0,0) 40%);
 	-webkit-transition: background-image 500ms ease-out 1s;
 }
 
 a:hover, .dark-mode a:hover {
-	/*background-image: linear-gradient(to top, rgba(255,210,184,1) 45%, rgba(255,210,184,0.5) 100%);*/
 	background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60%, rgba(255,186,71,1) 100%);
 	color: black;
 }
 
 
 .dark-mode a {
-	/*background-image: linear-gradient(to top, rgba(230,49,83,0.6) 45%, rgba(0,0,0,0) 40%);*/
-	background-image: linear-gradient(to top, rgba(211, 93, 63, 0.9) 45%, rgba(0,0,0,0) 40%);
+	background-image: linear-gradient(to top, rgba(211, 93, 63, 0.9) 25%, rgba(0,0,0,0) 20%);
 	color: white;	
 }
 
@@ -171,9 +166,7 @@ strong {
 	font-size: 0.7em;
 	padding:4px 8px;
 	border-radius:3px;
-	/*background-color: rgba(230,49,83,0.2);*/
 	border: 1px solid rgba(230, 49, 83, 0);
-	/*color: rgba(230,49,83,1);*/
 	color: black;
 	background-color: yellow;
 }
@@ -182,33 +175,28 @@ strong {
 .skills span:hover{
 	background: rgb(255,255,99);
 background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60%, rgba(255,186,71,1) 100%);
-	/*background-color: rgba(230, 49, 83, 0.15);*/
 	border: 1px solid rgba(255,255,99,1);
 	cursor: pointer;
 }
 
 .dark-mode .skills span {
-	/*background-color: rgba(230,49,83,0.25);*/
 	background-color: rgba(211, 93, 63, 0.9);
 }
 
 .dark-mode .skills span:hover {
-	/*background-color: rgba(230,49,83,0.35);*/
 }
 
 .feature {
 	margin-top: 6vh;
 	font-size: 0.8em;
-	color: rgba(0,0,0,0.5);
+	/*color: rgba(0,0,0,0.5);*/
+	color: rgba(54, 48, 44,0.6);
 	font-family: "EBGaramond";
-	/*font-family: "UbuntuMono-Regular";*/
-	/*font-family: "Inter";*/
-	/*font-family: "SilkSerif-Regular";*/
-	display: inline-block;
+	display: block;
 }
 .feature-link {
 	margin-top: 1.5vh;
-	display: inline-block;
+	color: black;
 }
 .dark-mode .feature {
 	color: rgba(255,255,255,0.7);
@@ -304,7 +292,7 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 }
 
 .label {
-	color: grey;
+	color: rgba(150, 141, 134,1);
 	font-size:0.7em;
 	font-family: 'UbuntuMono-Regular';
 	letter-spacing: -0.25px;
@@ -318,7 +306,7 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 }
 
 .quote-credits {
-	color: grey;
+	color: rgba(54, 48, 44,0.6);
 	font-size: 0.8em;
 	font-family: 'EBGaramond-Italic';
 }
