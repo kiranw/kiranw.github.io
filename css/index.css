@@ -203,3 +203,19 @@ html, body {
 	background-color: rgba(255,255,255,1);
 	padding: 10px;
 }
+#nav > #warning {
+	left: 30vw;
+	width:40vw;
+	text-align: center;
+	font-size: 0.8em;
+	/*text-transform: uppercase;*/
+	/*letter-spacing: 1.5px;	*/
+	position: fixed;
+	background-color: rgba(255,255,255,1);
+	padding: 10px;
+}
+#warning > span {
+	background-color: rgba(255, 169, 58, 0.2);
+	border-radius: 10px;
+	padding: 10px 20px;
+}
