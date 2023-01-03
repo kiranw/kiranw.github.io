@@ -27,7 +27,7 @@ html, body {
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
-		height: 100%;
+		width: 100vw;
 		box-sizing: border-box;
 	}
 	
@@ -38,13 +38,39 @@ html, body {
 	#cards > div:last-child {
 		padding-right: 3em;
 	}
+
+	#nav > #nav-buttons {
+		margin-top: -4vh;
+  		justify-content: space-between;
+  		align-items: center;
+	}
 }
 
 @media screen and (max-width: 500px) {
+	
 	#cards > div {
 		text-align: center;
 		margin-top: 1em;
 		margin-bottom: 1em;
+	}
+
+	#cards > div:first-child {
+		padding-top: 3em;
+	}
+
+	#cards > div:last-child {
+		padding-bottom: 3em;
+	}
+
+	#scroll-helper, #scroll-left-detector, #scroll-right-detector {
+		display:none;
+	}
+
+	#nav > #nav-buttons {
+		margin-top: 10px;
+  		justify-content: center;
+  		align-items: center;
+  		gap: 20px;
 	}
 }
 
@@ -83,7 +109,6 @@ html, body {
 	left: 0;
 	width: 100vw;
 	background-color: rgba(255,255,255,0.05);
-
 	text-align: center;
 	font-size: 1.3em;
 }
@@ -180,42 +205,48 @@ html, body {
 }
 
 #nav {
-	margin-top: 5vh;
+	padding: 4vh 4vw;
 	position: absolute;
 	z-index: 99;
+	width: 94vw;
+  	background-color: rgba(255,255,255,0.5);
+  	backdrop-filter: blur(10px);
 }
-#nav > a {
+
+#nav > #nav-buttons {
+	display: flex;
+}
+
+#nav > #nav-buttons > a {
 	right: 3vw;
 	text-decoration: none;
 	z-index: 100;
 	color: black;
 	font-size: 0.8em;
-	position: fixed;
-	background-color: rgba(255,255,255,1);
 	padding: 10px;
+	border: 1px solid black;
+	border-radius: 3px;
 }
-#nav > #scroll-helper {
-	left: 3vw;
-	font-size: 0.8em;
-	text-transform: uppercase;
-	letter-spacing: 1.5px;	
-	position: fixed;
-	background-color: rgba(255,255,255,1);
-	padding: 10px;
+
+#nav > #nav-buttons > a:hover {
+	color: #e63153;
+	border-color: #e63153;
 }
-#nav > #warning {
-	left: 30vw;
-	width:40vw;
-	text-align: center;
-	font-size: 0.8em;
-	/*text-transform: uppercase;*/
-	/*letter-spacing: 1.5px;	*/
-	position: fixed;
-	background-color: rgba(255,255,255,1);
-	padding: 10px;
+#nav > #name {
+	top: 4vh;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
-#warning > span {
-	background-color: rgba(255, 169, 58, 0.2);
-	border-radius: 10px;
-	padding: 10px 20px;
+#nav > div > span {
+	font-family: "SilkSerif-Bold";
+	font-size: 1.5em;
+	vertical-align: text-top;
+}
+#nav > div > img {
+	height: 2em;
+	margin-right: 15px;
+}
+#name {
+	display: flex;
 }

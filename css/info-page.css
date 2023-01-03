@@ -1,8 +1,70 @@
 body {
-	margin-left:25vw;
+	/*margin-left:25vw;*/
 	font-family: 'EBGaramond';
 	font-size: 1em;
 	overflow-x: hidden;
+}
+
+@media screen and (min-width: 601px) {
+	body {
+		margin-left:25vw;
+		margin-right:25vw;
+	}
+	
+	#about-header {
+		margin-left:-20vw;
+	}
+
+	.splash, .splash-video {
+		width:100vw;
+		margin-left:-25vw;
+	}
+	.skills {
+		width: 80%;
+	}
+
+	.full.imgrow {
+		margin-left: -25vw;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	body {
+		margin-left:10vw;
+		margin-right: 10vw;
+	}
+
+	#about-header {
+		margin-left:0vw;
+	}
+
+	.skills {
+		width: 85vw;
+	}
+
+	.splash, .splash-video {
+		width:120vw;
+		margin-left:-10vw;
+	}
+
+	.full.imgrow {
+		margin-left: -5vw;
+	}
+
+	iframe, video {
+		width: 100%;
+	}
+
+	#design-guide-video {
+		height: 250px;
+	}
+
+}
+
+
+#design-guide-video {
+	border-radius:20px; 
+	border:0px; 
 }
 
 a {
@@ -43,7 +105,7 @@ strong {
 	top: 7vh;
 	position: fixed;
 	font-size: 1em;
-	margin-left:-20vw;
+	/*margin-left:0vw;*/
 }
 
 #about-header a {
@@ -60,7 +122,7 @@ strong {
 }
 
 #about-header img {
-	margin-right: 3vw;
+	margin-right: 5vw;
 	margin-top:-2vh;
 	height:6vh;
 	width: auto;
@@ -99,7 +161,7 @@ strong {
 	font-family: "SilkSerif-Regular";
 	margin-top:15vh;
 	font-size:2.25em;
-	margin-right: 20vw;
+	/*margin-right: 20vw;*/
 	line-height: 1.3;
 }
 #about-text > strong {
@@ -150,11 +212,9 @@ strong {
 .section {
 	font-size:1.3em;
 	margin-bottom: 5vh;
-	width: 100vw;
 }
 
 .skills {
-	width: 80%;
 	margin-bottom: 15vh;
 	margin-top: 6vh;
 	font-family: "UbuntuMono-Regular";
@@ -189,7 +249,6 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 .feature {
 	margin-top: 6vh;
 	font-size: 0.8em;
-	/*color: rgba(0,0,0,0.5);*/
 	color: rgba(54, 48, 44,0.6);
 	font-family: "EBGaramond";
 	display: block;
@@ -248,7 +307,7 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 }
 
 .textbox {
-	width: 50vw;
+	width: 100%;
 	float: left;
 	margin-right: 3vw;
 }
@@ -259,7 +318,7 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 }
 
 .imgbox {
-	width: 25vw;
+	width: 100%;
 	margin-top: 30px;
 	/*float: left;*/
 }
@@ -269,21 +328,26 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 	height: auto;
 }
 
+.full.imgrow {
+	width: 100vw;
+	/*margin-left: -25vw;*/
+}
+
 .imgrow {
 	display: table;
 	width: 100%;
-	/*float: left;*/
-	/*margin: 5vh 0vw;*/
+	float: left;
+	margin: 5vh 0vw;
 }
 .imgrow > .imgwrapper {
 	display: table-cell;
 }
 .imgrow img {
 	display: block;
-	width: 95%;
+	width: 50%;
 	height: auto;
 	/*margin-right: 5%;*/
-	/*float: left;*/
+	float: left;
 }
 
 .clear {
@@ -312,7 +376,7 @@ background: linear-gradient(90deg, rgba(255,255,99,1) 0%, rgba(255,210,184,1) 60
 }
 
 .splash {
-	width:135%;
+	/*width:125vw;*/
 	height:auto;
 	margin-top:2vh;
 	margin-bottom:2vh;
